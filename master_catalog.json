@@ -1,23 +1,5 @@
 [
   {
-    "id": "BWV_645_Test",
-    "catalog_num": "",
-    "composer": "Public Domain",
-    "title_de": "Bwv 645 Test",
-    "title_en": "",
-    "season": "General / Ordinary Time",
-    "service_use": [
-      "Voluntary"
-    ],
-    "difficulty": 2,
-    "voicing": "3-Staff Organ",
-    "source_rel_path": "BWV_645_Test.musicxml",
-    "files": {
-      "tablet_pdf": "Domain_BWV_645_Test_Tablet.pdf",
-      "print_pdf": "Domain_BWV_645_Test_Print.pdf"
-    }
-  },
-  {
     "id": "BWV_269",
     "catalog_num": "BWV 269",
     "composer": "J. S. Bach",
