@@ -1,0 +1,495 @@
+[
+  {
+    "id": "BWV_645_Test",
+    "catalog_num": "",
+    "composer": "Public Domain",
+    "title_de": "Bwv 645 Test",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "BWV_645_Test.musicxml",
+    "files": {
+      "tablet_pdf": "Domain_BWV_645_Test_Tablet.pdf",
+      "print_pdf": "Domain_BWV_645_Test_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_269",
+    "catalog_num": "BWV 269",
+    "composer": "J. S. Bach",
+    "title_de": "Aus meines Herzens Grunde",
+    "title_en": "From the Depth of My Heart",
+    "season": "General / Morning",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV269_Aus_meines_Herzens_Grunde.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_269_Tablet.pdf",
+      "print_pdf": "Bach_BWV_269_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_270",
+    "catalog_num": "BWV 270",
+    "composer": "J. S. Bach",
+    "title_de": "Befiehl du deine Wege",
+    "title_en": "Commit Whatever Grieves Thee",
+    "season": "Trust / Comfort",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV270_Befiehl_du_deine_Wege.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_270_Tablet.pdf",
+      "print_pdf": "Bach_BWV_270_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_271",
+    "catalog_num": "BWV 271",
+    "composer": "J. S. Bach",
+    "title_de": "Gib dich zufrieden",
+    "title_en": "Be Still and Satisfied",
+    "season": "Trust / Comfort",
+    "service_use": [
+      "Communion",
+      "Meditation"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV271_Gib_dich_zufrieden.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_271_Tablet.pdf",
+      "print_pdf": "Bach_BWV_271_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_272",
+    "catalog_num": "BWV 272",
+    "composer": "J. S. Bach",
+    "title_de": "Ich dank dir lieber Herre",
+    "title_en": "I Thank Thee, Dear Lord",
+    "season": "Praise / Morning",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV272_Ich_dank_dir_lieber_Herre.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_272_Tablet.pdf",
+      "print_pdf": "Bach_BWV_272_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_274",
+    "catalog_num": "BWV 274",
+    "composer": "J. S. Bach",
+    "title_de": "O Haupt voll Blut und Wunden",
+    "title_en": "O Sacred Head, Now Wounded",
+    "season": "Lent / Holy Week",
+    "service_use": [
+      "Offertory",
+      "Elevation"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV274_O_Haupt_voll_Blut.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_274_Tablet.pdf",
+      "print_pdf": "Bach_BWV_274_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_277",
+    "catalog_num": "BWV 277",
+    "composer": "J. S. Bach",
+    "title_de": "Christ lag in Todesbanden",
+    "title_en": "Christ Jesus Lay in Death's Strong Bands",
+    "season": "Easter",
+    "service_use": [
+      "Postlude",
+      "Festival"
+    ],
+    "difficulty": 3,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV277_Christ_lag_in_Todesbanden.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_277_Tablet.pdf",
+      "print_pdf": "Bach_BWV_277_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_281",
+    "catalog_num": "BWV 281",
+    "composer": "J. S. Bach",
+    "title_de": "Christus der uns selig macht",
+    "title_en": "Christ Who Makes Us Holy",
+    "season": "Lent / Holy Week",
+    "service_use": [
+      "Offertory",
+      "Elevation"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV281_Christus_der_uns_selig_macht.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_281_Tablet.pdf",
+      "print_pdf": "Bach_BWV_281_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_282",
+    "catalog_num": "BWV 282",
+    "composer": "J. S. Bach",
+    "title_de": "Christus der ist mein Leben",
+    "title_en": "For Me to Live Is Christ",
+    "season": "Trust / Eternity",
+    "service_use": [
+      "Communion",
+      "Meditation"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV282_Christus_der_ist_mein_Leben.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_282_Tablet.pdf",
+      "print_pdf": "Bach_BWV_282_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_285",
+    "catalog_num": "BWV 285",
+    "composer": "J. S. Bach",
+    "title_de": "Da der Herr Christe zu Tische sass",
+    "title_en": "When the Lord Christ Sat at Table",
+    "season": "Maundy Thursday / Communion",
+    "service_use": [
+      "Communion",
+      "Meditation"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV285_Da_der_Herr_Christe.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_285_Tablet.pdf",
+      "print_pdf": "Bach_BWV_285_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_299",
+    "catalog_num": "BWV 299",
+    "composer": "J. S. Bach",
+    "title_de": "Dir dir Jehova will ich singen",
+    "title_en": "To Thee, Jehovah, Will I Sing",
+    "season": "Praise / Festival",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV299_Dir_dir_Jehova_will_ich_singen.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_299_Tablet.pdf",
+      "print_pdf": "Bach_BWV_299_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_300",
+    "catalog_num": "BWV 300",
+    "composer": "J. S. Bach",
+    "title_de": "Du grosser Schmerzensmann",
+    "title_en": "Thou Great Man of Sorrows",
+    "season": "Lent / Passiontide",
+    "service_use": [
+      "Offertory",
+      "Elevation"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV300_Du_grosser_Schmerzensmann.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_300_Tablet.pdf",
+      "print_pdf": "Bach_BWV_300_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_302",
+    "catalog_num": "BWV 302",
+    "composer": "J. S. Bach",
+    "title_de": "Ein feste Burg ist unser Gott",
+    "title_en": "A Mighty Fortress Is Our God",
+    "season": "Reformation / Festival",
+    "service_use": [
+      "Postlude",
+      "Processional"
+    ],
+    "difficulty": 3,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV302_Ein_feste_Burg_ist_unser_Gott.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_302_Tablet.pdf",
+      "print_pdf": "Bach_BWV_302_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_305",
+    "catalog_num": "BWV 305",
+    "composer": "J. S. Bach",
+    "title_de": "Erbarm dich mein o Herre Gott",
+    "title_en": "Have Mercy on Me, O Lord God",
+    "season": "Lent / Penitential",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV305_Erbarm_dich_mein_o_Herre_Gott.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_305_Tablet.pdf",
+      "print_pdf": "Bach_BWV_305_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_308",
+    "catalog_num": "BWV 308",
+    "composer": "J. S. Bach",
+    "title_de": "Es ist das Heil uns kommen her",
+    "title_en": "Salvation unto Us Has Come",
+    "season": "Grace / General",
+    "service_use": [
+      "Postlude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV308_Es_ist_das_Heil_uns_kommen_her.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_308_Tablet.pdf",
+      "print_pdf": "Bach_BWV_308_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_310",
+    "catalog_num": "BWV 310",
+    "composer": "J. S. Bach",
+    "title_de": "Es stehn vor Gottes Throne",
+    "title_en": "There Stand Before God's Throne",
+    "season": "All Saints / Angels",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV310_Es_stehn_vor_Gottes_Throne.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_310_Tablet.pdf",
+      "print_pdf": "Bach_BWV_310_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_314",
+    "catalog_num": "BWV 314",
+    "composer": "J. S. Bach",
+    "title_de": "Helft mir Gotts Guete preisen",
+    "title_en": "Help Me to Praise God's Goodness",
+    "season": "New Year / Epiphany",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV314_Helft_mir_Gotts_Guete_preisen.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_314_Tablet.pdf",
+      "print_pdf": "Bach_BWV_314_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_323",
+    "catalog_num": "BWV 323",
+    "composer": "J. S. Bach",
+    "title_de": "Gott sei uns gnaedig",
+    "title_en": "God Be Gracious unto Us",
+    "season": "Penitential / Mercy",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV323_Gott_sei_uns_gnaedig.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_323_Tablet.pdf",
+      "print_pdf": "Bach_BWV_323_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_328",
+    "catalog_num": "BWV 328",
+    "composer": "J. S. Bach",
+    "title_de": "Meine Seel erhebt den Herren",
+    "title_en": "My Soul Doth Magnify the Lord",
+    "season": "Advent / Magnificat",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV328_Meine_Seel_erhebt_den_Herren.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_328_Tablet.pdf",
+      "print_pdf": "Bach_BWV_328_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_347",
+    "catalog_num": "BWV 347",
+    "composer": "J. S. Bach",
+    "title_de": "Ich dank dir lieber Gott",
+    "title_en": "I Thank Thee, Loving God",
+    "season": "Thanksgiving",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV347_Ich_dank_dir_lieber_Gott.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_347_Tablet.pdf",
+      "print_pdf": "Bach_BWV_347_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_349",
+    "catalog_num": "BWV 349",
+    "composer": "J. S. Bach",
+    "title_de": "Ich dank dir schon",
+    "title_en": "I Give Thee Thanks Already",
+    "season": "Praise / General",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV349_Ich_dank_dir_schon_durch_deinen_Sohn.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_349_Tablet.pdf",
+      "print_pdf": "Bach_BWV_349_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_358",
+    "catalog_num": "BWV 358",
+    "composer": "J. S. Bach",
+    "title_de": "Jesu meine Freude",
+    "title_en": "Jesus, My Joy",
+    "season": "General / Communion",
+    "service_use": [
+      "Communion",
+      "Meditation"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV358_Jesu_meine_Freude.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_358_Tablet.pdf",
+      "print_pdf": "Bach_BWV_358_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_368",
+    "catalog_num": "BWV 368",
+    "composer": "J. S. Bach",
+    "title_de": "In dulci jubilo",
+    "title_en": "Good Christian Men, Rejoice",
+    "season": "Christmas / Epiphany",
+    "service_use": [
+      "Postlude",
+      "Processional"
+    ],
+    "difficulty": 3,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV368_In_dulci_jubilo.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_368_Tablet.pdf",
+      "print_pdf": "Bach_BWV_368_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_386",
+    "catalog_num": "BWV 386",
+    "composer": "J. S. Bach",
+    "title_de": "Nun danket alle Gott",
+    "title_en": "Now Thank We All Our God",
+    "season": "Thanksgiving / Festival",
+    "service_use": [
+      "Postlude",
+      "Recessional"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV386_Nun_danket_alle_Gott.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_386_Tablet.pdf",
+      "print_pdf": "Bach_BWV_386_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_388",
+    "catalog_num": "BWV 388",
+    "composer": "J. S. Bach",
+    "title_de": "Nun freut euch Gottes Kinder all",
+    "title_en": "Rejoice, Ye Children of the Lord",
+    "season": "Festival / Joy",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV388_Nun_freut_euch_Gottes_Kinder.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_388_Tablet.pdf",
+      "print_pdf": "Bach_BWV_388_Print.pdf"
+    }
+  },
+  {
+    "id": "BWV_397",
+    "catalog_num": "BWV 397",
+    "composer": "J. S. Bach",
+    "title_de": "O Ewigkeit du Donnerwort",
+    "title_en": "O Eternity, Thou Thunderous Word",
+    "season": "Eternity / End Times",
+    "service_use": [
+      "Prelude",
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "4-Voice (Manuals or Pedal)",
+    "source_rel_path": "Bach/Chorales/Bach_BWV397_O_Ewigkeit_du_Donnerwort.mxl",
+    "files": {
+      "tablet_pdf": "Bach_BWV_397_Tablet.pdf",
+      "print_pdf": "Bach_BWV_397_Print.pdf"
+    }
+  }
+]
