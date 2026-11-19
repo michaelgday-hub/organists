@@ -8152,6 +8152,204 @@
     }
   },
   {
+    "id": "intermezzo",
+    "catalog_num": "Op. 118, No. 2",
+    "composer": "Johannes Brahms",
+    "title_de": "2. Intermezzo",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "2-Staff Organ/Manualiter",
+    "source_rel_path": "Romantic_Masters/Brahms_Johannes/2_Intermezzo/intermezzo.ly",
+    "files": {
+      "tablet_pdf": "Brahms_intermezzo_Tablet.pdf",
+      "print_pdf": "Brahms_intermezzo_Print.pdf"
+    }
+  },
+  {
+    "id": "BRAHMS_OP122_1",
+    "catalog_num": "Op. 122 No. 1",
+    "composer": "Johannes Brahms",
+    "title_de": "Mein Jesu, der du mich",
+    "title_en": "My Jesus, Who Callest Me",
+    "season": "Lent / Penitential",
+    "service_use": [
+      "Prelude"
+    ],
+    "difficulty": 3,
+    "voicing": "3-Staff (Pedal Obligato)",
+    "source_rel_path": "Romantic_Masters/Brahms_Johannes/Sapphische_Ode/brahms-sapphische-ode.ly",
+    "files": {
+      "tablet_pdf": "Brahms_BRAHMS_OP122_1_Tablet.pdf",
+      "print_pdf": "Brahms_BRAHMS_OP122_1_Print.pdf"
+    }
+  },
+  {
+    "id": "waltz-op39-10",
+    "catalog_num": "Op. 39",
+    "composer": "Johannes Brahms",
+    "title_de": "Waltz No. 10",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "2-Staff Organ/Manualiter",
+    "source_rel_path": "Romantic_Masters/Brahms_Johannes/Waltz/waltz-op39-10.ly",
+    "files": {
+      "tablet_pdf": "Brahms_waltz-op39-10_Tablet.pdf",
+      "print_pdf": "Brahms_waltz-op39-10_Print.pdf"
+    }
+  },
+  {
+    "id": "Wiegenlied",
+    "catalog_num": "Op. 49, No. 4",
+    "composer": "Johannes Brahms",
+    "title_de": "Wiegenlied",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Romantic_Masters/Brahms_Johannes/Wiegenlied/Wiegenlied.ly",
+    "files": {
+      "tablet_pdf": "Brahms_Wiegenlied_Tablet.pdf",
+      "print_pdf": "Brahms_Wiegenlied_Print.pdf"
+    }
+  },
+  {
+    "id": "Wiegenlied_piano_SATB",
+    "catalog_num": "Op. 49, No. 4",
+    "composer": "Johannes Brahms",
+    "title_de": "Wiegenlied",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Romantic_Masters/Brahms_Johannes/Wiegenlied/Wiegenlied_piano_SATB.ly",
+    "files": {
+      "tablet_pdf": "Brahms_Wiegenlied_piano_SATB_Tablet.pdf",
+      "print_pdf": "Brahms_Wiegenlied_piano_SATB_Print.pdf"
+    }
+  },
+  {
+    "id": "franck_ave_maria_D-a4",
+    "catalog_num": "FWV 62",
+    "composer": "César Franck",
+    "title_de": "Ave Maria",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Romantic_Masters/Franck_Cesar/Ave_Maria/franck_ave_maria_D-a4.ly",
+    "files": {
+      "tablet_pdf": "Franck_franck_ave_maria_D-a4_Tablet.pdf",
+      "print_pdf": "Franck_franck_ave_maria_D-a4_Print.pdf"
+    }
+  },
+  {
+    "id": "franck_ave_maria_D-let",
+    "catalog_num": "FWV 62",
+    "composer": "César Franck",
+    "title_de": "Ave Maria",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Romantic_Masters/Franck_Cesar/Ave_Maria/franck_ave_maria_D-let.ly",
+    "files": {
+      "tablet_pdf": "Franck_franck_ave_maria_D-let_Tablet.pdf",
+      "print_pdf": "Franck_franck_ave_maria_D-let_Print.pdf"
+    }
+  },
+  {
+    "id": "franck_ave_maria_E-a4",
+    "catalog_num": "FWV 62",
+    "composer": "César Franck",
+    "title_de": "Ave Maria",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Romantic_Masters/Franck_Cesar/Ave_Maria/franck_ave_maria_E-a4.ly",
+    "files": {
+      "tablet_pdf": "Franck_franck_ave_maria_E-a4_Tablet.pdf",
+      "print_pdf": "Franck_franck_ave_maria_E-a4_Print.pdf"
+    }
+  },
+  {
+    "id": "franck_ave_maria_E-let",
+    "catalog_num": "FWV 62",
+    "composer": "César Franck",
+    "title_de": "Ave Maria",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Romantic_Masters/Franck_Cesar/Ave_Maria/franck_ave_maria_E-let.ly",
+    "files": {
+      "tablet_pdf": "Franck_franck_ave_maria_E-let_Tablet.pdf",
+      "print_pdf": "Franck_franck_ave_maria_E-let_Print.pdf"
+    }
+  },
+  {
+    "id": "PFMUT",
+    "catalog_num": "FWV 30",
+    "composer": "César Franck",
+    "title_de": "Prélude",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Romantic_Masters/Franck_Cesar/Pr_lude_de_Pr_lude_fugue_et_variation_C_sar_Franck_FWV_/PFMUT.ly",
+    "files": {
+      "tablet_pdf": "Franck_PFMUT_Tablet.pdf",
+      "print_pdf": "Franck_PFMUT_Print.pdf"
+    }
+  },
+  {
+    "id": "5-adagio",
+    "catalog_num": "O 42-1",
+    "composer": "WidorC",
+    "title_de": "Adagio",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "2-Staff Organ/Manualiter",
+    "source_rel_path": "Romantic_Masters/Widor_Charles-Marie/Adagio/5-adagio.ly",
+    "files": {
+      "tablet_pdf": "WidorC_5-adagio_Tablet.pdf",
+      "print_pdf": "WidorC_5-adagio_Print.pdf"
+    }
+  },
+  {
     "id": "mond",
     "catalog_num": "",
     "composer": "SchulzJAP",

@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>organists.org — Public Organ Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-parchment: #FAF8F5;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F2EEE7;
+      --border-came: #E2DCD0;
+      --border-strong: #C9BFA9;
+      --ink-primary: #1E242B;
+      --ink-secondary: #4E5863;
+      --ink-muted: #76808B;
+      --accent-sapphire: #1D4E89;
+      --accent-sapphire-soft: #EBF2FA;
+      --accent-amber: #9A6318;
+      --accent-amber-soft: #FDF5E6;
+      --accent-emerald: #1E6B52;
+      --accent-emerald-soft: #E9F5F0;
+      --accent-amethyst: #5B3E8C;
+      --accent-amethyst-soft: #F3EFFA;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-card: 0 2px 8px rgba(30, 36, 43, 0.04);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-parchment);
+      color: var(--ink-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .favrile-bar {
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, #1D4E89 0%, #2B7A78 35%, #C98A2E 70%, #5B3E8C 100%);
+    }
+    header {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-came);
+      padding: 1.25rem 1rem 1rem;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .brand-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink-primary);
+      line-height: 1.15;
+    }
+    .brand-subtitle {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+      margin-top: 0.2rem;
+    }
+    .header-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--accent-emerald-soft);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(30, 107, 82, 0.2);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+    }
+    .access-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--accent-amber-soft);
+      color: var(--accent-amber);
+      border: 1px solid rgba(154, 99, 24, 0.25);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .access-badge.unlocked {
+      background: var(--accent-sapphire-soft);
+      color: var(--accent-sapphire);
+      border-color: rgba(29, 78, 137, 0.25);
+    }
+    nav.tabs {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    nav.tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--ink-secondary);
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .tab-btn:hover { background: var(--bg-subtle); color: var(--ink-primary); }
+    .tab-btn.active {
+      background: var(--accent-sapphire-soft);
+      color: var(--accent-sapphire);
+      border-color: rgba(29, 78, 137, 0.22);
+      font-weight: 600;
+    }
+    main { padding: 1.25rem 1rem 3rem; }
+    .search-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1.25rem;
+    }
+    .search-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .search-input-wrap { position: relative; flex: 1 1 260px; }
+    .search-input {
+      width: 100%;
+      padding: 0.7rem 0.9rem 0.7rem 2.35rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: var(--bg-parchment);
+      color: var(--ink-primary);
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--accent-sapphire);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(29, 78, 137, 0.12);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-muted);
+      pointer-events: none;
+    }
+    .select-filter {
+      padding: 0.7rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.875rem;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      color: var(--ink-primary);
+      cursor: pointer;
+    }
+    .chips-row {
+      display: flex;
+      gap: 0.45rem;
+      overflow-x: auto;
+      margin-top: 0.85rem;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    .chips-row::-webkit-scrollbar { display: none; }
+    .chip {
+      border: 1px solid var(--border-came);
+      background: var(--bg-parchment);
+      color: var(--ink-secondary);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .chip:hover { border-color: var(--border-strong); }
+    .chip.active {
+      background: var(--ink-primary);
+      color: #FFFFFF;
+      border-color: var(--ink-primary);
+    }
+    .results-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+    }
+    .score-grid { display: grid; grid-template-columns: 1fr; gap: 0.85rem; }
+    .score-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      padding: 1.05rem 1.15rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 680px) {
+      .score-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .score-info { flex: 1; min-width: 0; }
+    .score-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.4rem; }
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.18rem 0.55rem;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+    }
+    .badge-bwv {
+      background: var(--bg-subtle);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-came);
+    }
+    .badge-season-advent, .badge-season-lent {
+      background: var(--accent-amethyst-soft);
+      color: var(--accent-amethyst);
+    }
+    .badge-season-christmas, .badge-season-easter {
+      background: var(--accent-amber-soft);
+      color: var(--accent-amber);
+    }
+    .badge-season-general, .badge-season-pentecost {
+      background: var(--accent-emerald-soft);
+      color: var(--accent-emerald);
+    }
+    .badge-use {
+      background: var(--accent-sapphire-soft);
+      color: var(--accent-sapphire);
+    }
+    .score-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.32rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      line-height: 1.25;
+    }
+    .score-subtitle {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+      margin-top: 0.15rem;
+    }
+    .score-actions { display: flex; gap: 0.55rem; flex-shrink: 0; }
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 9px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex: 1;
+    }
+    @media (min-width: 680px) { .btn-pdf { flex: initial; } }
+    .btn-tablet {
+      background: var(--accent-sapphire);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-sapphire);
+    }
+    .btn-tablet:hover { background: #163D6B; }
+    .btn-print {
+      background: var(--bg-parchment);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-strong);
+    }
+    .btn-print:hover { background: var(--bg-subtle); }
+    .lock-icon { font-size: 0.78rem; opacity: 0.9; }
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1rem;
+    }
+    .info-card h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .info-card p, .info-card li {
+      color: var(--ink-secondary);
+      font-size: 0.93rem;
+      margin-bottom: 0.6rem;
+    }
+    .info-card ul { padding-left: 1.25rem; }
+    .hidden { display: none !important; }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 36, 43, 0.52);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 1000;
+      backdrop-filter: blur(2px);
+    }
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      max-width: 460px;
+      width: 100%;
+      padding: 1.5rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .modal-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 1.35rem;
+      color: var(--ink-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .gate-group {
+      border-top: 1px solid var(--border-came);
+      padding-top: 0.95rem;
+      margin-top: 0.95rem;
+    }
+    .gate-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 0.35rem;
+    }
+    .gate-row { display: flex; gap: 0.5rem; }
+    .gate-input {
+      flex: 1;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: var(--bg-parchment);
+    }
+    .gate-input:focus {
+      outline: none;
+      border-color: var(--accent-sapphire);
+      background: #FFFFFF;
+    }
+    .gate-submit {
+      padding: 0.6rem 0.95rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent-sapphire);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .gate-submit:hover { background: #163D6B; }
+    .gate-sub-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.68rem 1rem;
+      border-radius: 9px;
+      background: var(--accent-amber-soft);
+      color: var(--accent-amber);
+      border: 1px solid rgba(154, 99, 24, 0.3);
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      margin-top: 0.45rem;
+    }
+    .gate-sub-btn:hover { background: #F9E9C8; }
+    .gate-error { color: #B42318; font-size: 0.82rem; margin-top: 0.5rem; }
+    .gate-hint { font-size: 0.78rem; color: var(--ink-muted); margin-top: 0.3rem; }
+    footer {
+      border-top: 1px solid var(--border-came);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="favrile-bar"></div>
+
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1 class="brand-title">Public Organ Library</h1>
+          <p class="brand-subtitle">organists.org &middot; Preserved Public-Domain Scores for Sanctuary &amp; Study</p>
+        </div>
+        <div class="header-pills">
+          <button type="button" class="access-badge" id="accessStatusBtn" onclick="openAccessModal()">
+            <span id="accessStatusText">🔒 Member / .edu Unlock</span>
+          </button>
+          <div class="status-pill" id="liveCounterPill">
+            <span class="status-dot"></span>
+            <span id="scoreCountText">Loading catalog...</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab-btn active" data-view="catalog">Score Catalog</button>
+        <button class="tab-btn" data-view="guide">Tablet &amp; Print Guide</button>
+        <button class="tab-btn" data-view="membership">Membership &amp; Contribute</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="view-catalog">
+      <div class="search-panel">
+        <div class="search-row">
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="searchInput" class="search-input" placeholder="Search BWV, German/English title, or composer..." aria-label="Search scores" />
+          </div>
+          <select id="useFilter" class="select-filter" aria-label="Filter by Service Use">
+            <option value="ALL">All Service Uses</option>
+            <option value="Prelude">Prelude</option>
+            <option value="Postlude">Postlude</option>
+            <option value="Offertory">Offertory</option>
+            <option value="Communion">Communion</option>
+            <option value="Voluntary">Voluntary</option>
+          </select>
+        </div>
+
+        <div class="chips-row" id="seasonChips">
+          <button class="chip active" data-season="ALL">All Seasons</button>
+          <button class="chip" data-season="Advent">Advent</button>
+          <button class="chip" data-season="Christmas">Christmas</button>
+          <button class="chip" data-season="Lent">Lent / Passiontide</button>
+          <button class="chip" data-season="Easter">Easter</button>
+          <button class="chip" data-season="Pentecost">Pentecost</button>
+          <button class="chip" data-season="General">General / Ordinary Time</button>
+        </div>
+      </div>
+
+      <div class="results-meta">
+        <span id="resultsSummary">Showing scores</span>
+        <button id="resetBtn" class="tab-btn hidden" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">Reset filters</button>
+      </div>
+
+      <div class="score-grid" id="scoreGrid"></div>
+    </section>
+
+    <section id="view-guide" class="hidden">
+      <div class="info-card">
+        <h2>Dual-Target Engraving Architecture</h2>
+        <p>Every score in the Public Organ Library is engraved from verified public-domain MusicXML sources using LilyPond 2.26.0 and compiled simultaneously into two purpose-built PDF formats:</p>
+        <ul>
+          <li><strong>Tablet Edition (6mm Symmetric Margins):</strong> Optimized for 12.9-inch iPad Pro displays and <em>forScore</em>. Maximizes staff size and note readability on the music rack with single-sided page turns.</li>
+          <li><strong>Print Edition (12mm Inner Binding Gutter):</strong> Formatted for two-sided duplex printing and spiral or comb binding, ensuring inner margins never clip measures near the spine.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="view-membership" class="hidden">
+      <div class="info-card">
+        <h2>Access &amp; Chapter Support</h2>
+        <p>The Public Organ Library provides complimentary access to active members of the <strong>Chambersburg Chapter of the American Guild of Organists (AGO)</strong> as well as organ students and faculty holding verified <strong>.edu</strong> academic addresses.</p>
+        <p>Sustaining Patrons and visiting church musicians are welcome to browse our open-access catalog and submit clean, 3-staff MusicXML (<code>.mxl</code>) transcriptions for archival engraving.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="accessModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="modalTitle">Unlock Score Downloads</h2>
+          <p style="font-size:0.86rem; color:var(--ink-secondary); margin-top:0.2rem;">
+            Complimentary access is included for active Chambersburg AGO members and verified <code>.edu</code> students &amp; faculty.
+          </p>
+        </div>
+        <button type="button" class="modal-close" aria-label="Close" onclick="closeAccessModal()">&times;</button>
+      </div>
+
+      <div id="unlockedSummary" class="hidden" style="background:var(--accent-emerald-soft); color:var(--accent-emerald); padding:0.7rem 0.85rem; border-radius:8px; font-size:0.85rem; margin-bottom:0.75rem;">
+        <div id="unlockedLabel" style="font-weight:600;"></div>
+        <button type="button" onclick="signOutAccess()" style="background:none; border:none; color:var(--accent-emerald); text-decoration:underline; font-size:0.8rem; cursor:pointer; margin-top:0.25rem;">Sign out / switch credentials</button>
+      </div>
+
+      <div id="gateForms">
+        <div class="gate-group" style="border-top:none; padding-top:0; margin-top:0.25rem;">
+          <label class="gate-label" for="memberCodeInput">1. Chambersburg AGO or Patron Code</label>
+          <div class="gate-row">
+            <input type="text" id="memberCodeInput" class="gate-input" placeholder="Enter chapter access code" autocomplete="off" />
+            <button type="button" class="gate-submit" onclick="verifyMemberCode()">Unlock</button>
+          </div>
+          <p class="gate-hint">Distributed to active chapter members &amp; sustaining patrons.</p>
+        </div>
+
+        <div class="gate-group">
+          <label class="gate-label" for="eduEmailInput">2. Academic <code>.edu</code> Email Address</label>
+          <div class="gate-row">
+            <input type="email" id="eduEmailInput" class="gate-input" placeholder="yourname@university.edu" />
+            <button type="button" class="gate-submit" onclick="verifyEduEmail()">Verify .edu</button>
+          </div>
+          <p class="gate-hint">Instant complimentary access for organ students &amp; faculty.</p>
+        </div>
+
+        <div class="gate-group">
+          <label class="gate-label">3. Visiting Organists &amp; Church Musicians</label>
+          <a id="subscribeLink" class="gate-sub-btn" href="#membership" onclick="goToMembership(event)">
+            Become a Sustaining Subscriber &rarr;
+          </a>
+        </div>
+
+        <p id="gateError" class="gate-error hidden"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      organists.org &middot; Public Organ Library &middot; Preserved for Liturgical &amp; Educational Use
+    </div>
+  </footer>
+
+  <script>
+    const VALID_MEMBER_CODES = ["AGO2026", "CHAMBERSBURG", "PATRON2026"];
+    const SUBSCRIPTION_URL = "";
+    const STORAGE_KEY = "organists_library_access_v1";
+
+    let scores = [];
+    let selectedSeason = "ALL";
+    let selectedUse = "ALL";
+    let searchQuery = "";
+    let pendingPdfUrl = null;
+
+    function getAccessState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function isUnlocked() {
+      const state = getAccessState();
+      return Boolean(state && state.granted);
+    }
+
+    function updateAccessUI() {
+      const state = getAccessState();
+      const btn = document.getElementById("accessStatusBtn");
+      const text = document.getElementById("accessStatusText");
+      const unlockedBox = document.getElementById("unlockedSummary");
+      const gateForms = document.getElementById("gateForms");
+
+      if (SUBSCRIPTION_URL) {
+        const subBtn = document.getElementById("subscribeLink");
+        if (subBtn) {
+          subBtn.href = SUBSCRIPTION_URL;
+          subBtn.target = "_blank";
+          subBtn.rel = "noopener";
+          subBtn.onclick = null;
+        }
+      }
+
+      if (state && state.granted) {
+        btn.classList.add("unlocked");
+        text.textContent = "✓ " + state.badge;
+        unlockedBox.classList.remove("hidden");
+        gateForms.classList.add("hidden");
+        document.getElementById("unlockedLabel").textContent = "Active Access: " + state.detail;
+      } else {
+        btn.classList.remove("unlocked");
+        text.textContent = "🔒 Member / .edu Unlock";
+        unlockedBox.classList.add("hidden");
+        gateForms.classList.remove("hidden");
+      }
+
+      if (scores.length > 0) {
+        renderScores();
+      }
+    }
+
+    function openAccessModal() {
+      document.getElementById("gateError").classList.add("hidden");
+      document.getElementById("accessModal").classList.remove("hidden");
+    }
+
+    function closeAccessModal() {
+      document.getElementById("accessModal").classList.add("hidden");
+      pendingPdfUrl = null;
+    }
+
+    function showGateError(msg) {
+      const el = document.getElementById("gateError");
+      el.textContent = msg;
+      el.classList.remove("hidden");
+    }
+
+    function grantAccess(badge, detail) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ granted: true, badge: badge, detail: detail, ts: Date.now() }));
+      const urlToOpen = pendingPdfUrl;
+      closeAccessModal();
+      updateAccessUI();
+      if (urlToOpen) {
+        window.open(urlToOpen, "_blank", "noopener");
+      }
+    }
+
+    function verifyMemberCode() {
+      const raw = (document.getElementById("memberCodeInput").value || "").trim().toUpperCase();
+      if (!raw) {
+        showGateError("Please enter your Chambersburg AGO or Patron access code.");
+        return;
+      }
+      if (VALID_MEMBER_CODES.includes(raw)) {
+        grantAccess("Member Unlocked", "Verified Code (" + raw + ")");
+      } else {
+        showGateError("That access code was not recognized. Check your chapter newsletter or patron receipt.");
+      }
+    }
+
+    function verifyEduEmail() {
+      const email = (document.getElementById("eduEmailInput").value || "").trim().toLowerCase();
+      if (!email.includes("@") || !email.endsWith(".edu")) {
+        showGateError("Please enter a valid academic email address ending in .edu.");
+        return;
+      }
+      grantAccess(".edu Academic", "Academic Access (" + email + ")");
+    }
+
+    function signOutAccess() {
+      localStorage.removeItem(STORAGE_KEY);
+      updateAccessUI();
+    }
+
+    function goToMembership(e) {
+      e.preventDefault();
+      closeAccessModal();
+      document.querySelector('[data-view="membership"]').click();
+    }
+
+    function handleScoreDownload(event, pdfUrl) {
+      if (isUnlocked()) {
+        return true;
+      }
+      event.preventDefault();
+      pendingPdfUrl = pdfUrl;
+      openAccessModal();
+      return false;
+    }
+
+    function resolvePdfPath(rawPath, folder, fallbackName) {
+      const p = rawPath || fallbackName;
+      return p.includes("/") ? p : (folder + "/" + p);
+    }
+
+    function normalizeCatalog(raw) {
+      const list = Array.isArray(raw) ? raw : (raw.scores || raw.catalog || raw.items || []);
+      return list.map(function(item, idx) {
+        const stem = item.id || item.stem || ("Score_" + (idx + 1));
+        const files = item.files || {};
+        const usesStr = Array.isArray(item.service_use)
+          ? item.service_use.join(", ")
+          : (item.use || item.service_use || "Prelude");
+        return {
+          id: stem,
+          bwv: item.catalog_num || item.catalog || item.bwv || "",
+          title: item.title_de || item.title || stem,
+          english: item.title_en || item.english || "",
+          composer: item.composer || "J. S. Bach",
+          season: item.season || "General",
+          use: usesStr,
+          tablet_pdf: resolvePdfPath(files.tablet_pdf || item.tablet_pdf, "scores_tablet", stem + "_Tablet.pdf"),
+          print_pdf: resolvePdfPath(files.print_pdf || item.print_pdf, "scores_print", stem + "_Print.pdf")
+        };
+      });
+    }
+
+    async function loadCatalog() {
+      try {
+        const res = await fetch("master_catalog.json?t=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        scores = normalizeCatalog(data);
+        document.getElementById("scoreCountText").textContent = scores.length + " Scores Online";
+        renderScores();
+      } catch (err) {
+        document.getElementById("scoreCountText").textContent = "Catalog Offline";
+        document.getElementById("scoreGrid").innerHTML =
+          '<div class="info-card"><p>Unable to load master_catalog.json (' + err.message + ').</p></div>';
+      }
+    }
+
+    function seasonBadgeClass(season) {
+      const s = (season || "").toLowerCase();
+      if (s.includes("advent")) return "badge-season-advent";
+      if (s.includes("lent") || s.includes("passion")) return "badge-season-lent";
+      if (s.includes("christmas")) return "badge-season-christmas";
+      if (s.includes("easter")) return "badge-season-easter";
+      if (s.includes("pentecost")) return "badge-season-pentecost";
+      return "badge-season-general";
+    }
+
+    function renderScores() {
+      const grid = document.getElementById("scoreGrid");
+      const q = searchQuery.trim().toLowerCase();
+
+      const filtered = scores.filter(function(s) {
+        const matchesSeason = selectedSeason === "ALL" || (s.season || "").toLowerCase().includes(selectedSeason.toLowerCase());
+        const matchesUse = selectedUse === "ALL" || (s.use || "").toLowerCase().includes(selectedUse.toLowerCase());
+        const matchesQuery = !q || [s.bwv, s.title, s.english, s.composer, s.season, s.use]
+          .some(function(field) { return (field || "").toLowerCase().includes(q); });
+        return matchesSeason && matchesUse && matchesQuery;
+      });
+
+      const isFiltered = selectedSeason !== "ALL" || selectedUse !== "ALL" || q.length > 0;
+      document.getElementById("resetBtn").classList.toggle("hidden", !isFiltered);
+      document.getElementById("resultsSummary").textContent = "Showing " + filtered.length + " of " + scores.length + " scores";
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="info-card"><p>No matching scores found. Try clearing your filters or searching by BWV number.</p></div>';
+        return;
+      }
+
+      const unlocked = isUnlocked();
+      const icon = unlocked ? "↓" : "🔒";
+      grid.innerHTML = filtered.map(function(s) {
+        const bwvTag = s.bwv ? '<span class="badge badge-bwv">' + s.bwv + '</span>' : '';
+        const engPrefix = s.english ? (s.english + ' &middot; ') : '';
+        return '<article class="score-card">' +
+          '<div class="score-info">' +
+            '<div class="score-badges">' +
+              bwvTag +
+              '<span class="badge ' + seasonBadgeClass(s.season) + '">' + s.season + '</span>' +
+              '<span class="badge badge-use">' + s.use + '</span>' +
+            '</div>' +
+            '<h2 class="score-title">' + s.title + '</h2>' +
+            '<p class="score-subtitle">' + engPrefix + s.composer + '</p>' +
+          '</div>' +
+          '<div class="score-actions">' +
+            '<a class="btn-pdf btn-tablet" href="' + s.tablet_pdf + '" onclick="return handleScoreDownload(event, \'' + s.tablet_pdf + '\')">' +
+              '<span class="lock-icon">' + icon + '</span> Tablet PDF' +
+            '</a>' +
+            '<a class="btn-pdf btn-print" href="' + s.print_pdf + '" onclick="return handleScoreDownload(event, \'' + s.print_pdf + '\')">' +
+              '<span class="lock-icon">' + icon + '</span> Print PDF' +
+            '</a>' +
+          '</div>' +
+        '</article>';
+      }).join("");
+    }
+
+    document.getElementById("searchInput").addEventListener("input", function(e) {
+      searchQuery = e.target.value;
+      renderScores();
+    });
+
+    document.getElementById("useFilter").addEventListener("change", function(e) {
+      selectedUse = e.target.value;
+      renderScores();
+    });
+
+    document.querySelectorAll("#seasonChips .chip").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        document.querySelectorAll("#seasonChips .chip").forEach(function(c) { c.classList.remove("active"); });
+        btn.classList.add("active");
+        selectedSeason = btn.dataset.season;
+        renderScores();
+      });
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", function() {
+      searchQuery = "";
+      selectedSeason = "ALL";
+      selectedUse = "ALL";
+      document.getElementById("searchInput").value = "";
+      document.getElementById("useFilter").value = "ALL";
+      document.querySelectorAll("#seasonChips .chip").forEach(function(c) {
+        c.classList.toggle("active", c.dataset.season === "ALL");
+      });
+      renderScores();
+    });
+
+    document.querySelectorAll("nav.tabs .tab-btn").forEach(function(tab) {
+      tab.addEventListener("click", function() {
+        document.querySelectorAll("nav.tabs .tab-btn").forEach(function(t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        const view = tab.dataset.view;
+        ["catalog", "guide", "membership"].forEach(function(v) {
+          document.getElementById("view-" + v).classList.toggle("hidden", v !== view);
+        });
+      });
+    });
+
+    document.getElementById("accessModal").addEventListener("click", function(e) {
+      if (e.target.id === "accessModal") closeAccessModal();
+    });
+
+    updateAccessUI();
+    loadCatalog();
+  </script>
+</body>
+</html>
