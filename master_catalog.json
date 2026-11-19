@@ -473,5 +473,23 @@
       "tablet_pdf": "Bach_BWV_397_Tablet.pdf",
       "print_pdf": "Bach_BWV_397_Print.pdf"
     }
+  },
+  {
+    "id": "BachJS_BWV549_Prelude",
+    "catalog_num": "BWV 549",
+    "composer": "J. S. Bach",
+    "title_de": "Prélude de Prélude et Fugue en Ut mineur",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "3-Staff Organ",
+    "source_rel_path": "Bach/Prelude_BWV549/BachJS_BWV549_Prelude.ly",
+    "files": {
+      "tablet_pdf": "Bach_BachJS_BWV549_Prelude_Tablet.pdf",
+      "print_pdf": "Bach_BachJS_BWV549_Prelude_Print.pdf"
+    }
   }
 ]
