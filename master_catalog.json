@@ -8530,6 +8530,24 @@
     }
   },
   {
+    "id": "Veni_Creator-1er_verset",
+    "catalog_num": "",
+    "composer": "TitelouzeJ",
+    "title_de": "Veni Creator (1er verset)",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "2-Staff Organ/Manualiter",
+    "source_rel_path": "TitelouzeJ/Veni_Creator_--_1er_verset/Veni_Creator-1er_verset.ly",
+    "files": {
+      "tablet_pdf": "TitelouzeJ_Veni_Creator-1er_verset_Tablet.pdf",
+      "print_pdf": "TitelouzeJ_Veni_Creator-1er_verset_Print.pdf"
+    }
+  },
+  {
     "id": "MWP5V",
     "catalog_num": "",
     "composer": "WeckmannM",
