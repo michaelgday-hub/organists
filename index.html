@@ -414,6 +414,143 @@
       font-size: 0.82rem;
       color: var(--ink-muted);
     }
+  
+    /* Access Gate Modal & Status */
+    .btn-locked {
+      opacity: 0.92;
+      position: relative;
+    }
+    .lock-icon {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+    .access-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--accent-amber-soft);
+      color: var(--accent-amber);
+      border: 1px solid rgba(154, 99, 24, 0.25);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .access-badge.unlocked {
+      background: var(--accent-sapphire-soft);
+      color: var(--accent-sapphire);
+      border-color: rgba(29, 78, 137, 0.25);
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 36, 43, 0.52);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 1000;
+      backdrop-filter: blur(2px);
+    }
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      max-width: 460px;
+      width: 100%;
+      padding: 1.5rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .modal-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 1.35rem;
+      color: var(--ink-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .gate-group {
+      border-top: 1px solid var(--border-came);
+      padding-top: 0.95rem;
+      margin-top: 0.95rem;
+    }
+    .gate-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 0.35rem;
+    }
+    .gate-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .gate-input {
+      flex: 1;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: var(--bg-parchment);
+    }
+    .gate-input:focus {
+      outline: none;
+      border-color: var(--accent-sapphire);
+      background: #FFFFFF;
+    }
+    .gate-submit {
+      padding: 0.6rem 0.95rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent-sapphire);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .gate-submit:hover { background: #163D6B; }
+    .gate-sub-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.68rem 1rem;
+      border-radius: 9px;
+      background: var(--accent-amber-soft);
+      color: var(--accent-amber);
+      border: 1px solid rgba(154, 99, 24, 0.3);
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      margin-top: 0.45rem;
+    }
+    .gate-sub-btn:hover { background: #F9E9C8; }
+    .gate-error {
+      color: #B42318;
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
+    }
+    .gate-hint {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      margin-top: 0.3rem;
+    }
+
   </style>
 </head>
 <body>
@@ -426,9 +563,14 @@
           <h1 class="brand-title">Public Organ Library</h1>
           <p class="brand-subtitle">organists.org &middot; Preserved Public-Domain Scores for Sanctuary &amp; Study</p>
         </div>
-        <div class="status-pill" id="liveCounterPill">
-          <span class="status-dot"></span>
-          <span id="scoreCountText">Loading catalog...</span>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+          <button type="button" class="access-badge" id="accessStatusBtn" onclick="openAccessModal()">
+            <span id="accessStatusText">🔒 Member / .edu Unlock</span>
+          </button>
+          <div class="status-pill" id="liveCounterPill">
+            <span class="status-dot"></span>
+            <span id="scoreCountText">Loading catalog...</span>
+          </div>
         </div>
       </div>
 
@@ -464,6 +606,7 @@
             <option value="Postlude">Postlude</option>
             <option value="Offertory">Offertory</option>
             <option value="Communion">Communion</option>
+            <option value="Voluntary">Voluntary</option>
           </select>
         </div>
 
@@ -508,6 +651,56 @@
     </section>
   </main>
 
+
+  <!-- ACCESS GATE MODAL -->
+  <div id="accessModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="modalTitle">Unlock Score Downloads</h2>
+          <p style="font-size:0.86rem; color:var(--ink-secondary); margin-top:0.2rem;">
+            Complimentary access is included for active Chambersburg AGO members and verified <code>.edu</code> students &amp; faculty.
+          </p>
+        </div>
+        <button type="button" class="modal-close" aria-label="Close" onclick="closeAccessModal()">&times;</button>
+      </div>
+
+      <div id="unlockedSummary" class="hidden" style="background:var(--accent-emerald-soft); color:var(--accent-emerald); padding:0.7rem 0.85rem; border-radius:8px; font-size:0.85rem; margin-bottom:0.75rem;">
+        <div id="unlockedLabel" style="font-weight:600;"></div>
+        <button type="button" onclick="signOutAccess()" style="background:none; border:none; color:var(--accent-emerald); text-decoration:underline; font-size:0.8rem; cursor:pointer; margin-top:0.25rem;">Sign out / switch credentials</button>
+      </div>
+
+      <div id="gateForms">
+        <div class="gate-group" style="border-top:none; padding-top:0; margin-top:0.25rem;">
+          <label class="gate-label" for="memberCodeInput">1. Chambersburg AGO or Patron Code</label>
+          <div class="gate-row">
+            <input type="text" id="memberCodeInput" class="gate-input" placeholder="Enter chapter access code" autocomplete="off" />
+            <button type="button" class="gate-submit" onclick="verifyMemberCode()">Unlock</button>
+          </div>
+          <p class="gate-hint">Distributed to active chapter members &amp; sustaining patrons.</p>
+        </div>
+
+        <div class="gate-group">
+          <label class="gate-label" for="eduEmailInput">2. Academic <code>.edu</code> Email Address</label>
+          <div class="gate-row">
+            <input type="email" id="eduEmailInput" class="gate-input" placeholder="yourname@university.edu" />
+            <button type="button" class="gate-submit" onclick="verifyEduEmail()">Verify .edu</button>
+          </div>
+          <p class="gate-hint">Instant complimentary access for organ students &amp; faculty.</p>
+        </div>
+
+        <div class="gate-group">
+          <label class="gate-label">3. Visiting Organists &amp; Church Musicians</label>
+          <a id="subscribeLink" class="gate-sub-btn" href="#membership" onclick="goToMembership(event)">
+            Become a Sustaining Subscriber &rarr;
+          </a>
+        </div>
+
+        <p id="gateError" class="gate-error hidden"></p>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
       organists.org &middot; Public Organ Library &middot; Preserved for Liturgical &amp; Educational Use
@@ -551,18 +744,24 @@
     function normalizeCatalog(raw) {
       const list = Array.isArray(raw) ? raw : (raw.scores || raw.catalog || raw.items || []);
       return list.map((item, idx) => {
-        const stem = item.id || item.stem || item.bwv?.replace(/\s+/g, "_") || `Score_${idx + 1}`;
+        const stem = item.id || item.stem || `Score_${idx + 1}`;
+        const files = item.files || {};
+        const usesStr = Array.isArray(item.service_use)
+          ? item.service_use.join(", ")
+          : (item.use || item.service_use || "Prelude");
         return {
           id: stem,
-          bwv: item.bwv || item.catalog_number || "",
-          title: item.title || item.work_title || stem,
-          english: item.english || item.subtitle || item.english_title || "",
+          bwv: item.catalog_num || item.catalog || item.bwv || "",
+          title: item.title_de || item.title || stem,
+          english: item.title_en || item.english || "",
           composer: item.composer || "J. S. Bach",
-          season: item.season || item.liturgical_season || "General",
-          use: item.use || item.service_use || "Prelude",
-          tablet_pdf: item.tablet_pdf || item.tablet_path || `scores_tablet/${stem}_Tablet.pdf`,
-          print_pdf: item.print_pdf || item.print_path || `scores_print/${stem}_Print.pdf`
+          season: item.season || "General",
+          use: usesStr,
+          tablet_pdf: files.tablet_pdf || item.tablet_pdf || `scores_tablet/${stem}_Tablet.pdf`,
+          print_pdf: files.print_pdf || item.print_pdf || `scores_print/${stem}_Print.pdf`
         };
+      });
+    };
       });
     }
 
@@ -624,8 +823,12 @@
             <p class="score-subtitle">${s.english ? `${s.english} &middot; ` : ""}${s.composer}</p>
           </div>
           <div class="score-actions">
-            <a class="btn-pdf btn-tablet" href="${s.tablet_pdf}" target="_blank" rel="noopener">Tablet PDF</a>
-            <a class="btn-pdf btn-print" href="${s.print_pdf}" target="_blank" rel="noopener">Print PDF</a>
+            <a class="btn-pdf btn-tablet" href="${s.tablet_pdf}" onclick="return handleScoreDownload(event, '${s.tablet_pdf}')">
+              <span class="lock-icon">${isUnlocked() ? '↓' : '🔒'}</span> Tablet PDF
+            </a>
+            <a class="btn-pdf btn-print" href="${s.print_pdf}" onclick="return handleScoreDownload(event, '${s.print_pdf}')">
+              <span class="lock-icon">${isUnlocked() ? '↓' : '🔒'}</span> Print PDF
+            </a>
           </div>
         </article>
       `).join("");
@@ -673,6 +876,131 @@
         });
       });
     });
+
+
+    // --- ACCESS GATE CONFIGURATION ---
+    const VALID_MEMBER_CODES = ["AGO2026", "CHAMBERSBURG", "PATRON2026"];
+    const SUBSCRIPTION_URL = ""; // Paste your Stripe Payment Link URL here when ready (e.g. "https://buy.stripe.com/...")
+    const STORAGE_KEY = "organists_library_access_v1";
+    let pendingPdfUrl = null;
+
+    function getAccessState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      } catch {
+        return null;
+      }
+    }
+
+    function isUnlocked() {
+      const state = getAccessState();
+      return Boolean(state && state.granted);
+    }
+
+    function updateAccessUI() {
+      const state = getAccessState();
+      const btn = document.getElementById("accessStatusBtn");
+      const text = document.getElementById("accessStatusText");
+      const unlockedBox = document.getElementById("unlockedSummary");
+      const gateForms = document.getElementById("gateForms");
+
+      if (SUBSCRIPTION_URL) {
+        const subBtn = document.getElementById("subscribeLink");
+        subBtn.href = SUBSCRIPTION_URL;
+        subBtn.target = "_blank";
+        subBtn.rel = "noopener";
+        subBtn.onclick = null;
+      }
+
+      if (state && state.granted) {
+        btn.classList.add("unlocked");
+        text.textContent = `✓ ${state.badge}`;
+        unlockedBox.classList.remove("hidden");
+        gateForms.classList.add("hidden");
+        document.getElementById("unlockedLabel").textContent = `Active Access: ${state.detail}`;
+      } else {
+        btn.classList.remove("unlocked");
+        text.textContent = "🔒 Member / .edu Unlock";
+        unlockedBox.classList.add("hidden");
+        gateForms.classList.remove("hidden");
+      }
+      renderScores();
+    }
+
+    function openAccessModal() {
+      document.getElementById("gateError").classList.add("hidden");
+      document.getElementById("accessModal").classList.remove("hidden");
+    }
+
+    function closeAccessModal() {
+      document.getElementById("accessModal").classList.add("hidden");
+      pendingPdfUrl = null;
+    }
+
+    function showGateError(msg) {
+      const el = document.getElementById("gateError");
+      el.textContent = msg;
+      el.classList.remove("hidden");
+    }
+
+    function grantAccess(badge, detail) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ granted: true, badge, detail, ts: Date.now() }));
+      const urlToOpen = pendingPdfUrl;
+      closeAccessModal();
+      updateAccessUI();
+      if (urlToOpen) {
+        window.open(urlToOpen, "_blank", "noopener");
+      }
+    }
+
+    function verifyMemberCode() {
+      const raw = (document.getElementById("memberCodeInput").value || "").trim().toUpperCase();
+      if (!raw) {
+        showGateError("Please enter your Chambersburg AGO or Patron access code.");
+        return;
+      }
+      if (VALID_MEMBER_CODES.includes(raw)) {
+        grantAccess("Member Unlocked", `Verified Code (${raw})`);
+      } else {
+        showGateError("That access code was not recognized. Check your chapter newsletter or patron receipt.");
+      }
+    }
+
+    function verifyEduEmail() {
+      const email = (document.getElementById("eduEmailInput").value || "").trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.edu$/i.test(email)) {
+        showGateError("Please enter a valid academic email address ending in .edu.");
+        return;
+      }
+      grantAccess(".edu Academic", `Academic Access (${email})`);
+    }
+
+    function signOutAccess() {
+      localStorage.removeItem(STORAGE_KEY);
+      updateAccessUI();
+    }
+
+    function goToMembership(e) {
+      e.preventDefault();
+      closeAccessModal();
+      document.querySelector('[data-view="membership"]').click();
+    }
+
+    function handleScoreDownload(event, pdfUrl) {
+      if (isUnlocked()) {
+        return true; // Allow normal link open
+      }
+      event.preventDefault();
+      pendingPdfUrl = pdfUrl;
+      openAccessModal();
+      return false;
+    }
+
+    document.getElementById("accessModal").addEventListener("click", e => {
+      if (e.target.id === "accessModal") closeAccessModal();
+    });
+
+    updateAccessUI();
 
     loadCatalog();
   </script>
