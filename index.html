@@ -678,7 +678,7 @@
 
     function verifyEduEmail() {
       const email = (document.getElementById("eduEmailInput").value || "").trim().toLowerCase();
-      if (!/^[^\s@]+@[^\s@]+\.edu$/i.test(email)) {
+      if (!email.includes("@") || !email.endsWith(".edu")) {
         showGateError("Please enter a valid academic email address ending in .edu.");
         return;
       }
@@ -706,6 +706,11 @@
       return false;
     }
 
+    function resolvePdfPath(rawPath, folder, fallbackName) {
+      const p = rawPath || fallbackName;
+      return p.includes("/") ? p : (folder + "/" + p);
+    }
+
     function normalizeCatalog(raw) {
       const list = Array.isArray(raw) ? raw : (raw.scores || raw.catalog || raw.items || []);
       return list.map(function(item, idx) {
@@ -722,8 +727,8 @@
           composer: item.composer || "J. S. Bach",
           season: item.season || "General",
           use: usesStr,
-          tablet_pdf: files.tablet_pdf || item.tablet_pdf || ("scores_tablet/" + stem + "_Tablet.pdf"),
-          print_pdf: files.print_pdf || item.print_pdf || ("scores_print/" + stem + "_Print.pdf")
+          tablet_pdf: resolvePdfPath(files.tablet_pdf || item.tablet_pdf, "scores_tablet", stem + "_Tablet.pdf"),
+          print_pdf: resolvePdfPath(files.print_pdf || item.print_pdf, "scores_print", stem + "_Print.pdf")
         };
       });
     }
@@ -790,10 +795,10 @@
             '<p class="score-subtitle">' + engPrefix + s.composer + '</p>' +
           '</div>' +
           '<div class="score-actions">' +
-            '<a class="btn-pdf btn-tablet" href="' + s.tablet_pdf + '" onclick="return handleScoreDownload(event, '' + s.tablet_pdf + '')">' +
+            '<a class="btn-pdf btn-tablet" href="' + s.tablet_pdf + '" onclick="return handleScoreDownload(event, \'' + s.tablet_pdf + '\')">' +
               '<span class="lock-icon">' + icon + '</span> Tablet PDF' +
             '</a>' +
-            '<a class="btn-pdf btn-print" href="' + s.print_pdf + '" onclick="return handleScoreDownload(event, '' + s.print_pdf + '')">' +
+            '<a class="btn-pdf btn-print" href="' + s.print_pdf + '" onclick="return handleScoreDownload(event, \'' + s.print_pdf + '\')">' +
               '<span class="lock-icon">' + icon + '</span> Print PDF' +
             '</a>' +
           '</div>' +
