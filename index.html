@@ -29,13 +29,7 @@
       --radius-lg: 14px;
       --shadow-card: 0 2px 8px rgba(30, 36, 43, 0.04);
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-parchment);
@@ -43,25 +37,17 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-
-    /* Subtle 4px Tiffany favrile-glass top accent bar */
     .favrile-bar {
       height: 4px;
       width: 100%;
       background: linear-gradient(90deg, #1D4E89 0%, #2B7A78 35%, #C98A2E 70%, #5B3E8C 100%);
     }
-
     header {
       background: var(--bg-card);
       border-bottom: 1px solid var(--border-came);
       padding: 1.25rem 1rem 1rem;
     }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
+    .container { max-width: 960px; margin: 0 auto; }
     .header-top {
       display: flex;
       justify-content: space-between;
@@ -69,7 +55,6 @@
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-
     .brand-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.85rem;
@@ -78,13 +63,17 @@
       color: var(--ink-primary);
       line-height: 1.15;
     }
-
     .brand-subtitle {
       font-size: 0.875rem;
       color: var(--ink-secondary);
       margin-top: 0.2rem;
     }
-
+    .header-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -98,331 +87,11 @@
       font-weight: 600;
       white-space: nowrap;
     }
-
     .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: var(--accent-emerald);
-    }
-
-    /* Segmented Navigation */
-    nav.tabs {
-      display: flex;
-      gap: 0.4rem;
-      margin-top: 1rem;
-      overflow-x: auto;
-      padding-bottom: 2px;
-      scrollbar-width: none;
-    }
-    nav.tabs::-webkit-scrollbar { display: none; }
-
-    .tab-btn {
-      background: transparent;
-      border: 1px solid transparent;
-      color: var(--ink-secondary);
-      font-family: inherit;
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 0.5rem 0.85rem;
-      border-radius: 8px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.15s ease;
-    }
-
-    .tab-btn:hover {
-      background: var(--bg-subtle);
-      color: var(--ink-primary);
-    }
-
-    .tab-btn.active {
-      background: var(--accent-sapphire-soft);
-      color: var(--accent-sapphire);
-      border-color: rgba(29, 78, 137, 0.22);
-      font-weight: 600;
-    }
-
-    main {
-      padding: 1.25rem 1rem 3rem;
-    }
-
-    /* Search & Filter Controls */
-    .search-panel {
-      background: var(--bg-card);
-      border: 1px solid var(--border-came);
-      border-radius: var(--radius-lg);
-      padding: 1rem;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 1.25rem;
-    }
-
-    .search-row {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
-    .search-input-wrap {
-      position: relative;
-      flex: 1 1 260px;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 0.7rem 0.9rem 0.7rem 2.35rem;
-      font-family: inherit;
-      font-size: 0.95rem;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-      background: var(--bg-parchment);
-      color: var(--ink-primary);
-      outline: none;
-    }
-
-    .search-input:focus {
-      border-color: var(--accent-sapphire);
-      background: #FFFFFF;
-      box-shadow: 0 0 0 3px rgba(29, 78, 137, 0.12);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 0.8rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--ink-muted);
-      pointer-events: none;
-    }
-
-    .select-filter {
-      padding: 0.7rem 0.85rem;
-      font-family: inherit;
-      font-size: 0.875rem;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-      background: var(--bg-card);
-      color: var(--ink-primary);
-      cursor: pointer;
-    }
-
-    .chips-row {
-      display: flex;
-      gap: 0.45rem;
-      overflow-x: auto;
-      margin-top: 0.85rem;
-      padding-bottom: 2px;
-      scrollbar-width: none;
-    }
-    .chips-row::-webkit-scrollbar { display: none; }
-
-    .chip {
-      border: 1px solid var(--border-came);
-      background: var(--bg-parchment);
-      color: var(--ink-secondary);
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.15s ease;
-    }
-
-    .chip:hover {
-      border-color: var(--border-strong);
-    }
-
-    .chip.active {
-      background: var(--ink-primary);
-      color: #FFFFFF;
-      border-color: var(--ink-primary);
-    }
-
-    .results-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.85rem;
-      font-size: 0.85rem;
-      color: var(--ink-secondary);
-    }
-
-    /* Score Cards */
-    .score-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.85rem;
-    }
-
-    .score-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-came);
-      border-radius: var(--radius-lg);
-      padding: 1.05rem 1.15rem;
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    @media (min-width: 680px) {
-      .score-card {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-    }
-
-    .score-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .score-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .badge {
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.18rem 0.55rem;
-      border-radius: 6px;
-      letter-spacing: 0.01em;
-    }
-
-    .badge-bwv {
-      background: var(--bg-subtle);
-      color: var(--ink-primary);
-      border: 1px solid var(--border-came);
-    }
-
-    .badge-season-advent, .badge-season-lent {
-      background: var(--accent-amethyst-soft);
-      color: var(--accent-amethyst);
-    }
-
-    .badge-season-christmas, .badge-season-easter {
-      background: var(--accent-amber-soft);
-      color: var(--accent-amber);
-    }
-
-    .badge-season-general, .badge-season-pentecost {
-      background: var(--accent-emerald-soft);
-      color: var(--accent-emerald);
-    }
-
-    .badge-use {
-      background: var(--accent-sapphire-soft);
-      color: var(--accent-sapphire);
-    }
-
-    .score-title {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.32rem;
-      font-weight: 700;
-      color: var(--ink-primary);
-      line-height: 1.25;
-    }
-
-    .score-subtitle {
-      font-size: 0.875rem;
-      color: var(--ink-secondary);
-      margin-top: 0.15rem;
-    }
-
-    .score-actions {
-      display: flex;
-      gap: 0.55rem;
-      flex-shrink: 0;
-    }
-
-    .btn-pdf {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.6rem 0.9rem;
-      border-radius: 9px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      flex: 1;
-    }
-
-    @media (min-width: 680px) {
-      .btn-pdf { flex: initial; }
-    }
-
-    .btn-tablet {
-      background: var(--accent-sapphire);
-      color: #FFFFFF;
-      border: 1px solid var(--accent-sapphire);
-    }
-
-    .btn-tablet:hover {
-      background: #163D6B;
-    }
-
-    .btn-print {
-      background: var(--bg-parchment);
-      color: var(--ink-primary);
-      border: 1px solid var(--border-strong);
-    }
-
-    .btn-print:hover {
-      background: var(--bg-subtle);
-    }
-
-    /* Info Sections */
-    .info-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-came);
-      border-radius: var(--radius-lg);
-      padding: 1.35rem;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 1rem;
-    }
-
-    .info-card h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .info-card p, .info-card li {
-      color: var(--ink-secondary);
-      font-size: 0.93rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .info-card ul {
-      padding-left: 1.25rem;
-    }
-
-    .hidden { display: none !important; }
-
-    footer {
-      border-top: 1px solid var(--border-came);
-      padding: 1.5rem 1rem;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--ink-muted);
-    }
-  
-    /* Access Gate Modal & Status */
-    .btn-locked {
-      opacity: 0.92;
-      position: relative;
-    }
-    .lock-icon {
-      font-size: 0.78rem;
-      opacity: 0.85;
     }
     .access-badge {
       display: inline-flex;
@@ -442,6 +111,224 @@
       color: var(--accent-sapphire);
       border-color: rgba(29, 78, 137, 0.25);
     }
+    nav.tabs {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    nav.tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--ink-secondary);
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .tab-btn:hover { background: var(--bg-subtle); color: var(--ink-primary); }
+    .tab-btn.active {
+      background: var(--accent-sapphire-soft);
+      color: var(--accent-sapphire);
+      border-color: rgba(29, 78, 137, 0.22);
+      font-weight: 600;
+    }
+    main { padding: 1.25rem 1rem 3rem; }
+    .search-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1.25rem;
+    }
+    .search-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .search-input-wrap { position: relative; flex: 1 1 260px; }
+    .search-input {
+      width: 100%;
+      padding: 0.7rem 0.9rem 0.7rem 2.35rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: var(--bg-parchment);
+      color: var(--ink-primary);
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--accent-sapphire);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(29, 78, 137, 0.12);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-muted);
+      pointer-events: none;
+    }
+    .select-filter {
+      padding: 0.7rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.875rem;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      color: var(--ink-primary);
+      cursor: pointer;
+    }
+    .chips-row {
+      display: flex;
+      gap: 0.45rem;
+      overflow-x: auto;
+      margin-top: 0.85rem;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    .chips-row::-webkit-scrollbar { display: none; }
+    .chip {
+      border: 1px solid var(--border-came);
+      background: var(--bg-parchment);
+      color: var(--ink-secondary);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .chip:hover { border-color: var(--border-strong); }
+    .chip.active {
+      background: var(--ink-primary);
+      color: #FFFFFF;
+      border-color: var(--ink-primary);
+    }
+    .results-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+    }
+    .score-grid { display: grid; grid-template-columns: 1fr; gap: 0.85rem; }
+    .score-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      padding: 1.05rem 1.15rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 680px) {
+      .score-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .score-info { flex: 1; min-width: 0; }
+    .score-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.4rem; }
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.18rem 0.55rem;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+    }
+    .badge-bwv {
+      background: var(--bg-subtle);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-came);
+    }
+    .badge-season-advent, .badge-season-lent {
+      background: var(--accent-amethyst-soft);
+      color: var(--accent-amethyst);
+    }
+    .badge-season-christmas, .badge-season-easter {
+      background: var(--accent-amber-soft);
+      color: var(--accent-amber);
+    }
+    .badge-season-general, .badge-season-pentecost {
+      background: var(--accent-emerald-soft);
+      color: var(--accent-emerald);
+    }
+    .badge-use {
+      background: var(--accent-sapphire-soft);
+      color: var(--accent-sapphire);
+    }
+    .score-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.32rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      line-height: 1.25;
+    }
+    .score-subtitle {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+      margin-top: 0.15rem;
+    }
+    .score-actions { display: flex; gap: 0.55rem; flex-shrink: 0; }
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 9px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex: 1;
+    }
+    @media (min-width: 680px) { .btn-pdf { flex: initial; } }
+    .btn-tablet {
+      background: var(--accent-sapphire);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-sapphire);
+    }
+    .btn-tablet:hover { background: #163D6B; }
+    .btn-print {
+      background: var(--bg-parchment);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-strong);
+    }
+    .btn-print:hover { background: var(--bg-subtle); }
+    .lock-icon { font-size: 0.78rem; opacity: 0.9; }
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-came);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1rem;
+    }
+    .info-card h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .info-card p, .info-card li {
+      color: var(--ink-secondary);
+      font-size: 0.93rem;
+      margin-bottom: 0.6rem;
+    }
+    .info-card ul { padding-left: 1.25rem; }
+    .hidden { display: none !important; }
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -495,10 +382,7 @@
       color: var(--ink-primary);
       margin-bottom: 0.35rem;
     }
-    .gate-row {
-      display: flex;
-      gap: 0.5rem;
-    }
+    .gate-row { display: flex; gap: 0.5rem; }
     .gate-input {
       flex: 1;
       padding: 0.6rem 0.8rem;
@@ -540,17 +424,15 @@
       margin-top: 0.45rem;
     }
     .gate-sub-btn:hover { background: #F9E9C8; }
-    .gate-error {
-      color: #B42318;
+    .gate-error { color: #B42318; font-size: 0.82rem; margin-top: 0.5rem; }
+    .gate-hint { font-size: 0.78rem; color: var(--ink-muted); margin-top: 0.3rem; }
+    footer {
+      border-top: 1px solid var(--border-came);
+      padding: 1.5rem 1rem;
+      text-align: center;
       font-size: 0.82rem;
-      margin-top: 0.5rem;
-    }
-    .gate-hint {
-      font-size: 0.78rem;
       color: var(--ink-muted);
-      margin-top: 0.3rem;
     }
-
   </style>
 </head>
 <body>
@@ -563,7 +445,7 @@
           <h1 class="brand-title">Public Organ Library</h1>
           <p class="brand-subtitle">organists.org &middot; Preserved Public-Domain Scores for Sanctuary &amp; Study</p>
         </div>
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+        <div class="header-pills">
           <button type="button" class="access-badge" id="accessStatusBtn" onclick="openAccessModal()">
             <span id="accessStatusText">🔒 Member / .edu Unlock</span>
           </button>
@@ -583,7 +465,6 @@
   </header>
 
   <main class="container">
-    <!-- VIEW 1: CATALOG -->
     <section id="view-catalog">
       <div class="search-panel">
         <div class="search-row">
@@ -592,13 +473,7 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input
-              type="search"
-              id="searchInput"
-              class="search-input"
-              placeholder="Search BWV, German/English title, or composer..."
-              aria-label="Search scores"
-            />
+            <input type="search" id="searchInput" class="search-input" placeholder="Search BWV, German/English title, or composer..." aria-label="Search scores" />
           </div>
           <select id="useFilter" class="select-filter" aria-label="Filter by Service Use">
             <option value="ALL">All Service Uses</option>
@@ -629,7 +504,6 @@
       <div class="score-grid" id="scoreGrid"></div>
     </section>
 
-    <!-- VIEW 2: PRINTING & IPAD GUIDE -->
     <section id="view-guide" class="hidden">
       <div class="info-card">
         <h2>Dual-Target Engraving Architecture</h2>
@@ -641,7 +515,6 @@
       </div>
     </section>
 
-    <!-- VIEW 3: MEMBERSHIP & CONTRIBUTE -->
     <section id="view-membership" class="hidden">
       <div class="info-card">
         <h2>Access &amp; Chapter Support</h2>
@@ -651,8 +524,6 @@
     </section>
   </main>
 
-
-  <!-- ACCESS GATE MODAL -->
   <div id="accessModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-card">
       <div class="modal-header">
@@ -708,186 +579,20 @@
   </footer>
 
   <script>
-    const FALLBACK_CATALOG = [
-      { id: "BWV_599", bwv: "BWV 599", title: "Nun komm, der Heiden Heiland", english: "Now Come, Savior of the Gentiles", composer: "J. S. Bach", season: "Advent", use: "Prelude", tablet_pdf: "scores_tablet/BWV_599_Tablet.pdf", print_pdf: "scores_print/BWV_599_Print.pdf" },
-      { id: "BWV_601", bwv: "BWV 601", title: "Herr Christ, der ein'ge Gottes-Sohn", english: "Lord Christ, the Only Son of God", composer: "J. S. Bach", season: "Advent", use: "Prelude", tablet_pdf: "scores_tablet/BWV_601_Tablet.pdf", print_pdf: "scores_print/BWV_601_Print.pdf" },
-      { id: "BWV_604", bwv: "BWV 604", title: "Gelobet seist du, Jesu Christ", english: "Praise Be to You, Jesus Christ", composer: "J. S. Bach", season: "Christmas", use: "Prelude", tablet_pdf: "scores_tablet/BWV_604_Tablet.pdf", print_pdf: "scores_print/BWV_604_Print.pdf" },
-      { id: "BWV_605", bwv: "BWV 605", title: "Der Tag, der ist so freudenreich", english: "O Hail This Brightest Day of Days", composer: "J. S. Bach", season: "Christmas", use: "Postlude", tablet_pdf: "scores_tablet/BWV_605_Tablet.pdf", print_pdf: "scores_print/BWV_605_Print.pdf" },
-      { id: "BWV_606", bwv: "BWV 606", title: "Vom Himmel hoch, da komm ich her", english: "From Heaven Above to Earth I Come", composer: "J. S. Bach", season: "Christmas", use: "Postlude", tablet_pdf: "scores_tablet/BWV_606_Tablet.pdf", print_pdf: "scores_print/BWV_606_Print.pdf" },
-      { id: "BWV_608", bwv: "BWV 608", title: "In dulci jubilo", english: "In Sweet Rejoicing", composer: "J. S. Bach", season: "Christmas", use: "Postlude", tablet_pdf: "scores_tablet/BWV_608_Tablet.pdf", print_pdf: "scores_print/BWV_608_Print.pdf" },
-      { id: "BWV_614", bwv: "BWV 614", title: "Das alte Jahr vergangen ist", english: "The Old Year Now Has Passed Away", composer: "J. S. Bach", season: "Christmas", use: "Offertory", tablet_pdf: "scores_tablet/BWV_614_Tablet.pdf", print_pdf: "scores_print/BWV_614_Print.pdf" },
-      { id: "BWV_615", bwv: "BWV 615", title: "In dir ist Freude", english: "In You Is Gladness", composer: "J. S. Bach", season: "Christmas", use: "Postlude", tablet_pdf: "scores_tablet/BWV_615_Tablet.pdf", print_pdf: "scores_print/BWV_615_Print.pdf" },
-      { id: "BWV_617", bwv: "BWV 617", title: "Herr Gott, nun schleuß den Himmel auf", english: "Lord God, Now Open Wide Heaven's Door", composer: "J. S. Bach", season: "Lent", use: "Offertory", tablet_pdf: "scores_tablet/BWV_617_Tablet.pdf", print_pdf: "scores_print/BWV_617_Print.pdf" },
-      { id: "BWV_618", bwv: "BWV 618", title: "O Lamm Gottes, unschuldig", english: "O Lamb of God, Pure and Spotless", composer: "J. S. Bach", season: "Lent", use: "Communion", tablet_pdf: "scores_tablet/BWV_618_Tablet.pdf", print_pdf: "scores_print/BWV_618_Print.pdf" },
-      { id: "BWV_622", bwv: "BWV 622", title: "O Mensch, bewein dein Sünde groß", english: "O Man, Bewail Thy Grievous Sin", composer: "J. S. Bach", season: "Lent", use: "Prelude", tablet_pdf: "scores_tablet/BWV_622_Tablet.pdf", print_pdf: "scores_print/BWV_622_Print.pdf" },
-      { id: "BWV_625", bwv: "BWV 625", title: "Christ lag in Todesbanden", english: "Christ Jesus Lay in Death's Strong Bands", composer: "J. S. Bach", season: "Easter", use: "Postlude", tablet_pdf: "scores_tablet/BWV_625_Tablet.pdf", print_pdf: "scores_print/BWV_625_Print.pdf" },
-      { id: "BWV_626", bwv: "BWV 626", title: "Jesus Christus, unser Heiland", english: "Jesus Christ, Our Savior", composer: "J. S. Bach", season: "Easter", use: "Postlude", tablet_pdf: "scores_tablet/BWV_626_Tablet.pdf", print_pdf: "scores_print/BWV_626_Print.pdf" },
-      { id: "BWV_628", bwv: "BWV 628", title: "Erstanden ist der heil'ge Christ", english: "Arisen Is the Holy Christ", composer: "J. S. Bach", season: "Easter", use: "Postlude", tablet_pdf: "scores_tablet/BWV_628_Tablet.pdf", print_pdf: "scores_print/BWV_628_Print.pdf" },
-      { id: "BWV_630", bwv: "BWV 630", title: "Heut triumphieret Gottes Sohn", english: "Today God's Son Triumphs", composer: "J. S. Bach", season: "Easter", use: "Postlude", tablet_pdf: "scores_tablet/BWV_630_Tablet.pdf", print_pdf: "scores_print/BWV_630_Print.pdf" },
-      { id: "BWV_631", bwv: "BWV 631", title: "Komm, Gott Schöpfer, Heiliger Geist", english: "Come, God Creator, Holy Spirit", composer: "J. S. Bach", season: "Pentecost", use: "Postlude", tablet_pdf: "scores_tablet/BWV_631_Tablet.pdf", print_pdf: "scores_print/BWV_631_Print.pdf" },
-      { id: "BWV_633", bwv: "BWV 633", title: "Liebster Jesu, wir sind hier", english: "Dearest Jesus, We Are Here", composer: "J. S. Bach", season: "General", use: "Prelude", tablet_pdf: "scores_tablet/BWV_633_Tablet.pdf", print_pdf: "scores_print/BWV_633_Print.pdf" },
-      { id: "BWV_637", bwv: "BWV 637", title: "Durch Adams Fall ist ganz verderbt", english: "Through Adam's Fall Is All Corrupted", composer: "J. S. Bach", season: "Lent", use: "Prelude", tablet_pdf: "scores_tablet/BWV_637_Tablet.pdf", print_pdf: "scores_print/BWV_637_Print.pdf" },
-      { id: "BWV_639", bwv: "BWV 639", title: "Ich ruf zu dir, Herr Jesu Christ", english: "I Call to You, Lord Jesus Christ", composer: "J. S. Bach", season: "General", use: "Offertory", tablet_pdf: "scores_tablet/BWV_639_Tablet.pdf", print_pdf: "scores_print/BWV_639_Print.pdf" },
-      { id: "BWV_641", bwv: "BWV 641", title: "Wenn wir in höchsten Nöten sein", english: "When in the Hour of Utmost Need", composer: "J. S. Bach", season: "General", use: "Communion", tablet_pdf: "scores_tablet/BWV_641_Tablet.pdf", print_pdf: "scores_print/BWV_641_Print.pdf" },
-      { id: "BWV_642", bwv: "BWV 642", title: "Wer nur den lieben Gott läßt walten", english: "If Thou But Suffer God to Guide Thee", composer: "J. S. Bach", season: "General", use: "Prelude", tablet_pdf: "scores_tablet/BWV_642_Tablet.pdf", print_pdf: "scores_print/BWV_642_Print.pdf" },
-      { id: "BWV_643", bwv: "BWV 643", title: "Alle Menschen müssen sterben", english: "All Mankind Must Perish", composer: "J. S. Bach", season: "General", use: "Prelude", tablet_pdf: "scores_tablet/BWV_643_Tablet.pdf", print_pdf: "scores_print/BWV_643_Print.pdf" },
-      { id: "BWV_644", bwv: "BWV 644", title: "Ach wie nichtig, ach wie flüchtig", english: "Ah How Fleeting, Ah How Futile", composer: "J. S. Bach", season: "General", use: "Offertory", tablet_pdf: "scores_tablet/BWV_644_Tablet.pdf", print_pdf: "scores_print/BWV_644_Print.pdf" },
-      { id: "BWV_645", bwv: "BWV 645", title: "Wachet auf, ruft uns die Stimme", english: "Sleepers, Wake! A Voice Is Calling", composer: "J. S. Bach", season: "Advent", use: "Prelude", tablet_pdf: "scores_tablet/BWV_645_Tablet.pdf", print_pdf: "scores_print/BWV_645_Print.pdf" },
-      { id: "BWV_659", bwv: "BWV 659", title: "Nun komm, der Heiden Heiland (ornamented)", english: "Now Come, Savior of the Gentiles", composer: "J. S. Bach", season: "Advent", use: "Prelude", tablet_pdf: "scores_tablet/BWV_659_Tablet.pdf", print_pdf: "scores_print/BWV_659_Print.pdf" }
-    ];
+    const VALID_MEMBER_CODES = ["AGO2026", "CHAMBERSBURG", "PATRON2026"];
+    const SUBSCRIPTION_URL = "";
+    const STORAGE_KEY = "organists_library_access_v1";
 
     let scores = [];
     let selectedSeason = "ALL";
     let selectedUse = "ALL";
     let searchQuery = "";
-
-    function normalizeCatalog(raw) {
-      const list = Array.isArray(raw) ? raw : (raw.scores || raw.catalog || raw.items || []);
-      return list.map((item, idx) => {
-        const stem = item.id || item.stem || `Score_${idx + 1}`;
-        const files = item.files || {};
-        const usesStr = Array.isArray(item.service_use)
-          ? item.service_use.join(", ")
-          : (item.use || item.service_use || "Prelude");
-        return {
-          id: stem,
-          bwv: item.catalog_num || item.catalog || item.bwv || "",
-          title: item.title_de || item.title || stem,
-          english: item.title_en || item.english || "",
-          composer: item.composer || "J. S. Bach",
-          season: item.season || "General",
-          use: usesStr,
-          tablet_pdf: files.tablet_pdf || item.tablet_pdf || `scores_tablet/${stem}_Tablet.pdf`,
-          print_pdf: files.print_pdf || item.print_pdf || `scores_print/${stem}_Print.pdf`
-        };
-      });
-    };
-      });
-    }
-
-    async function loadCatalog() {
-      try {
-        const res = await fetch("master_catalog.json", { cache: "no-store" });
-        if (!res.ok) throw new Error("Catalog fetch returned " + res.status);
-        const data = await res.json();
-        const normalized = normalizeCatalog(data);
-        scores = normalized.length ? normalized : FALLBACK_CATALOG;
-      } catch (err) {
-        scores = FALLBACK_CATALOG;
-      }
-      document.getElementById("scoreCountText").textContent = `${scores.length} Scores Online`;
-      renderScores();
-    }
-
-    function seasonBadgeClass(season) {
-      const s = (season || "").toLowerCase();
-      if (s.includes("advent")) return "badge-season-advent";
-      if (s.includes("lent") || s.includes("passion")) return "badge-season-lent";
-      if (s.includes("christmas")) return "badge-season-christmas";
-      if (s.includes("easter")) return "badge-season-easter";
-      if (s.includes("pentecost")) return "badge-season-pentecost";
-      return "badge-season-general";
-    }
-
-    function renderScores() {
-      const grid = document.getElementById("scoreGrid");
-      const q = searchQuery.trim().toLowerCase();
-
-      const filtered = scores.filter(s => {
-        const matchesSeason = selectedSeason === "ALL" || (s.season || "").toLowerCase().includes(selectedSeason.toLowerCase());
-        const matchesUse = selectedUse === "ALL" || (s.use || "").toLowerCase().includes(selectedUse.toLowerCase());
-        const matchesQuery = !q || [s.bwv, s.title, s.english, s.composer, s.season, s.use]
-          .some(field => (field || "").toLowerCase().includes(q));
-        return matchesSeason && matchesUse && matchesQuery;
-      });
-
-      const isFiltered = selectedSeason !== "ALL" || selectedUse !== "ALL" || q.length > 0;
-      document.getElementById("resetBtn").classList.toggle("hidden", !isFiltered);
-      document.getElementById("resultsSummary").textContent =
-        `Showing ${filtered.length} of ${scores.length} scores`;
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `<div class="info-card"><p>No matching scores found. Try clearing your filters or searching by BWV number.</p></div>`;
-        return;
-      }
-
-      grid.innerHTML = filtered.map(s => `
-        <article class="score-card">
-          <div class="score-info">
-            <div class="score-badges">
-              ${s.bwv ? `<span class="badge badge-bwv">${s.bwv}</span>` : ""}
-              <span class="badge ${seasonBadgeClass(s.season)}">${s.season}</span>
-              <span class="badge badge-use">${s.use}</span>
-            </div>
-            <h2 class="score-title">${s.title}</h2>
-            <p class="score-subtitle">${s.english ? `${s.english} &middot; ` : ""}${s.composer}</p>
-          </div>
-          <div class="score-actions">
-            <a class="btn-pdf btn-tablet" href="${s.tablet_pdf}" onclick="return handleScoreDownload(event, '${s.tablet_pdf}')">
-              <span class="lock-icon">${isUnlocked() ? '↓' : '🔒'}</span> Tablet PDF
-            </a>
-            <a class="btn-pdf btn-print" href="${s.print_pdf}" onclick="return handleScoreDownload(event, '${s.print_pdf}')">
-              <span class="lock-icon">${isUnlocked() ? '↓' : '🔒'}</span> Print PDF
-            </a>
-          </div>
-        </article>
-      `).join("");
-    }
-
-    // Event Listeners
-    document.getElementById("searchInput").addEventListener("input", e => {
-      searchQuery = e.target.value;
-      renderScores();
-    });
-
-    document.getElementById("useFilter").addEventListener("change", e => {
-      selectedUse = e.target.value;
-      renderScores();
-    });
-
-    document.querySelectorAll("#seasonChips .chip").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll("#seasonChips .chip").forEach(c => c.classList.remove("active"));
-        btn.classList.add("active");
-        selectedSeason = btn.dataset.season;
-        renderScores();
-      });
-    });
-
-    document.getElementById("resetBtn").addEventListener("click", () => {
-      searchQuery = "";
-      selectedSeason = "ALL";
-      selectedUse = "ALL";
-      document.getElementById("searchInput").value = "";
-      document.getElementById("useFilter").value = "ALL";
-      document.querySelectorAll("#seasonChips .chip").forEach(c => {
-        c.classList.toggle("active", c.dataset.season === "ALL");
-      });
-      renderScores();
-    });
-
-    document.querySelectorAll("nav.tabs .tab-btn").forEach(tab => {
-      tab.addEventListener("click", () => {
-        document.querySelectorAll("nav.tabs .tab-btn").forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        const view = tab.dataset.view;
-        ["catalog", "guide", "membership"].forEach(v => {
-          document.getElementById(`view-${v}`).classList.toggle("hidden", v !== view);
-        });
-      });
-    });
-
-
-    // --- ACCESS GATE CONFIGURATION ---
-    const VALID_MEMBER_CODES = ["AGO2026", "CHAMBERSBURG", "PATRON2026"];
-    const SUBSCRIPTION_URL = ""; // Paste your Stripe Payment Link URL here when ready (e.g. "https://buy.stripe.com/...")
-    const STORAGE_KEY = "organists_library_access_v1";
     let pendingPdfUrl = null;
 
     function getAccessState() {
       try {
         return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-      } catch {
+      } catch (e) {
         return null;
       }
     }
@@ -906,25 +611,30 @@
 
       if (SUBSCRIPTION_URL) {
         const subBtn = document.getElementById("subscribeLink");
-        subBtn.href = SUBSCRIPTION_URL;
-        subBtn.target = "_blank";
-        subBtn.rel = "noopener";
-        subBtn.onclick = null;
+        if (subBtn) {
+          subBtn.href = SUBSCRIPTION_URL;
+          subBtn.target = "_blank";
+          subBtn.rel = "noopener";
+          subBtn.onclick = null;
+        }
       }
 
       if (state && state.granted) {
         btn.classList.add("unlocked");
-        text.textContent = `✓ ${state.badge}`;
+        text.textContent = "✓ " + state.badge;
         unlockedBox.classList.remove("hidden");
         gateForms.classList.add("hidden");
-        document.getElementById("unlockedLabel").textContent = `Active Access: ${state.detail}`;
+        document.getElementById("unlockedLabel").textContent = "Active Access: " + state.detail;
       } else {
         btn.classList.remove("unlocked");
         text.textContent = "🔒 Member / .edu Unlock";
         unlockedBox.classList.add("hidden");
         gateForms.classList.remove("hidden");
       }
-      renderScores();
+
+      if (scores.length > 0) {
+        renderScores();
+      }
     }
 
     function openAccessModal() {
@@ -944,7 +654,7 @@
     }
 
     function grantAccess(badge, detail) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ granted: true, badge, detail, ts: Date.now() }));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ granted: true, badge: badge, detail: detail, ts: Date.now() }));
       const urlToOpen = pendingPdfUrl;
       closeAccessModal();
       updateAccessUI();
@@ -960,7 +670,7 @@
         return;
       }
       if (VALID_MEMBER_CODES.includes(raw)) {
-        grantAccess("Member Unlocked", `Verified Code (${raw})`);
+        grantAccess("Member Unlocked", "Verified Code (" + raw + ")");
       } else {
         showGateError("That access code was not recognized. Check your chapter newsletter or patron receipt.");
       }
@@ -972,7 +682,7 @@
         showGateError("Please enter a valid academic email address ending in .edu.");
         return;
       }
-      grantAccess(".edu Academic", `Academic Access (${email})`);
+      grantAccess(".edu Academic", "Academic Access (" + email + ")");
     }
 
     function signOutAccess() {
@@ -988,7 +698,7 @@
 
     function handleScoreDownload(event, pdfUrl) {
       if (isUnlocked()) {
-        return true; // Allow normal link open
+        return true;
       }
       event.preventDefault();
       pendingPdfUrl = pdfUrl;
@@ -996,12 +706,148 @@
       return false;
     }
 
-    document.getElementById("accessModal").addEventListener("click", e => {
+    function normalizeCatalog(raw) {
+      const list = Array.isArray(raw) ? raw : (raw.scores || raw.catalog || raw.items || []);
+      return list.map(function(item, idx) {
+        const stem = item.id || item.stem || ("Score_" + (idx + 1));
+        const files = item.files || {};
+        const usesStr = Array.isArray(item.service_use)
+          ? item.service_use.join(", ")
+          : (item.use || item.service_use || "Prelude");
+        return {
+          id: stem,
+          bwv: item.catalog_num || item.catalog || item.bwv || "",
+          title: item.title_de || item.title || stem,
+          english: item.title_en || item.english || "",
+          composer: item.composer || "J. S. Bach",
+          season: item.season || "General",
+          use: usesStr,
+          tablet_pdf: files.tablet_pdf || item.tablet_pdf || ("scores_tablet/" + stem + "_Tablet.pdf"),
+          print_pdf: files.print_pdf || item.print_pdf || ("scores_print/" + stem + "_Print.pdf")
+        };
+      });
+    }
+
+    async function loadCatalog() {
+      try {
+        const res = await fetch("master_catalog.json?t=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        scores = normalizeCatalog(data);
+        document.getElementById("scoreCountText").textContent = scores.length + " Scores Online";
+        renderScores();
+      } catch (err) {
+        document.getElementById("scoreCountText").textContent = "Catalog Offline";
+        document.getElementById("scoreGrid").innerHTML =
+          '<div class="info-card"><p>Unable to load master_catalog.json (' + err.message + ').</p></div>';
+      }
+    }
+
+    function seasonBadgeClass(season) {
+      const s = (season || "").toLowerCase();
+      if (s.includes("advent")) return "badge-season-advent";
+      if (s.includes("lent") || s.includes("passion")) return "badge-season-lent";
+      if (s.includes("christmas")) return "badge-season-christmas";
+      if (s.includes("easter")) return "badge-season-easter";
+      if (s.includes("pentecost")) return "badge-season-pentecost";
+      return "badge-season-general";
+    }
+
+    function renderScores() {
+      const grid = document.getElementById("scoreGrid");
+      const q = searchQuery.trim().toLowerCase();
+
+      const filtered = scores.filter(function(s) {
+        const matchesSeason = selectedSeason === "ALL" || (s.season || "").toLowerCase().includes(selectedSeason.toLowerCase());
+        const matchesUse = selectedUse === "ALL" || (s.use || "").toLowerCase().includes(selectedUse.toLowerCase());
+        const matchesQuery = !q || [s.bwv, s.title, s.english, s.composer, s.season, s.use]
+          .some(function(field) { return (field || "").toLowerCase().includes(q); });
+        return matchesSeason && matchesUse && matchesQuery;
+      });
+
+      const isFiltered = selectedSeason !== "ALL" || selectedUse !== "ALL" || q.length > 0;
+      document.getElementById("resetBtn").classList.toggle("hidden", !isFiltered);
+      document.getElementById("resultsSummary").textContent = "Showing " + filtered.length + " of " + scores.length + " scores";
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="info-card"><p>No matching scores found. Try clearing your filters or searching by BWV number.</p></div>';
+        return;
+      }
+
+      const unlocked = isUnlocked();
+      const icon = unlocked ? "↓" : "🔒";
+      grid.innerHTML = filtered.map(function(s) {
+        const bwvTag = s.bwv ? '<span class="badge badge-bwv">' + s.bwv + '</span>' : '';
+        const engPrefix = s.english ? (s.english + ' &middot; ') : '';
+        return '<article class="score-card">' +
+          '<div class="score-info">' +
+            '<div class="score-badges">' +
+              bwvTag +
+              '<span class="badge ' + seasonBadgeClass(s.season) + '">' + s.season + '</span>' +
+              '<span class="badge badge-use">' + s.use + '</span>' +
+            '</div>' +
+            '<h2 class="score-title">' + s.title + '</h2>' +
+            '<p class="score-subtitle">' + engPrefix + s.composer + '</p>' +
+          '</div>' +
+          '<div class="score-actions">' +
+            '<a class="btn-pdf btn-tablet" href="' + s.tablet_pdf + '" onclick="return handleScoreDownload(event, '' + s.tablet_pdf + '')">' +
+              '<span class="lock-icon">' + icon + '</span> Tablet PDF' +
+            '</a>' +
+            '<a class="btn-pdf btn-print" href="' + s.print_pdf + '" onclick="return handleScoreDownload(event, '' + s.print_pdf + '')">' +
+              '<span class="lock-icon">' + icon + '</span> Print PDF' +
+            '</a>' +
+          '</div>' +
+        '</article>';
+      }).join("");
+    }
+
+    document.getElementById("searchInput").addEventListener("input", function(e) {
+      searchQuery = e.target.value;
+      renderScores();
+    });
+
+    document.getElementById("useFilter").addEventListener("change", function(e) {
+      selectedUse = e.target.value;
+      renderScores();
+    });
+
+    document.querySelectorAll("#seasonChips .chip").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        document.querySelectorAll("#seasonChips .chip").forEach(function(c) { c.classList.remove("active"); });
+        btn.classList.add("active");
+        selectedSeason = btn.dataset.season;
+        renderScores();
+      });
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", function() {
+      searchQuery = "";
+      selectedSeason = "ALL";
+      selectedUse = "ALL";
+      document.getElementById("searchInput").value = "";
+      document.getElementById("useFilter").value = "ALL";
+      document.querySelectorAll("#seasonChips .chip").forEach(function(c) {
+        c.classList.toggle("active", c.dataset.season === "ALL");
+      });
+      renderScores();
+    });
+
+    document.querySelectorAll("nav.tabs .tab-btn").forEach(function(tab) {
+      tab.addEventListener("click", function() {
+        document.querySelectorAll("nav.tabs .tab-btn").forEach(function(t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        const view = tab.dataset.view;
+        ["catalog", "guide", "membership"].forEach(function(v) {
+          document.getElementById("view-" + v).classList.toggle("hidden", v !== view);
+        });
+      });
+    });
+
+    document.getElementById("accessModal").addEventListener("click", function(e) {
       if (e.target.id === "accessModal") closeAccessModal();
     });
 
     updateAccessUI();
-
     loadCatalog();
   </script>
 </body>
