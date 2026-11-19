@@ -491,5 +491,23 @@
       "tablet_pdf": "Bach_BachJS_BWV549_Prelude_Tablet.pdf",
       "print_pdf": "Bach_BachJS_BWV549_Prelude_Print.pdf"
     }
+  },
+  {
+    "id": "Mendelssohn_Op65_No6_Final_de_la_sixieme_sonate",
+    "catalog_num": "Opus 65 n°6",
+    "composer": "Felix Mendelssohn",
+    "title_de": "Final de la sixième sonate",
+    "title_en": "",
+    "season": "General / Ordinary Time",
+    "service_use": [
+      "Voluntary"
+    ],
+    "difficulty": 2,
+    "voicing": "2-Staff Organ/Manualiter",
+    "source_rel_path": "Mendelssohn/Sonata_Op65_No6/Mendelssohn_Op65_No6_Final_de_la_sixieme_sonate.ly",
+    "files": {
+      "tablet_pdf": "Mendelssohn_Mendelssohn_Op65_No6_Final_de_la_sixieme_sonate_Tablet.pdf",
+      "print_pdf": "Mendelssohn_Mendelssohn_Op65_No6_Final_de_la_sixieme_sonate_Print.pdf"
+    }
   }
 ]
