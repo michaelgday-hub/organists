@@ -475,6 +475,9 @@
             </svg>
             <input type="search" id="searchInput" class="search-input" placeholder="Search BWV, German/English title, or composer..." aria-label="Search scores" />
           </div>
+          <select id="composerFilter" class="select-filter" aria-label="Filter by Composer">
+            <option value="ALL">All Composers</option>
+          </select>
           <select id="useFilter" class="select-filter" aria-label="Filter by Service Use">
             <option value="ALL">All Service Uses</option>
             <option value="Prelude">Prelude</option>
@@ -484,6 +487,8 @@
             <option value="Voluntary">Voluntary</option>
           </select>
         </div>
+
+        <div class="chips-row" id="traditionChips" style="margin-bottom:0.5rem;"></div>
 
         <div class="chips-row" id="seasonChips">
           <button class="chip active" data-season="ALL">All Seasons</button>
@@ -502,6 +507,7 @@
       </div>
 
       <div class="score-grid" id="scoreGrid"></div>
+      <div id="loadMoreWrap" class="hidden" style="text-align:center;margin-top:1.25rem;"><button id="loadMoreBtn" type="button" class="chip" style="padding:0.65rem 1.35rem;font-weight:600;">Load more scores</button></div>
     </section>
 
     <section id="view-guide" class="hidden">
@@ -762,26 +768,96 @@
       const grid = document.getElementById("scoreGrid");
       const q = searchQuery.trim().toLowerCase();
 
+      if (!window._filtersInitialized && Array.isArray(scores) && scores.length > 0) {
+        window._filtersInitialized = true;
+        window.selectedTradition = "ALL";
+        window.selectedComposer = "ALL";
+        window.visibleLimit = 60;
+
+        var tradRules = [
+          { name: "German", re: /bach|buxtehude|pachelbel|mendelssohn|brahms|reger|rheinberger|scheidemann|weckmann|muffat|ritter|bruckner|handel|schulz|cr[uü]ger|nicolai|walther/i },
+          { name: "French", re: /franck|vierne|widor|guilmant|bo[eë]llmann|gigout|dubois|dandrieu|grigny|roberday|titelouze|couperin|clerambault|saint-sa[eë]ns|dupr[eé]|messiaen|langlais|alain|mulet/i },
+          { name: "English", re: /tallis|purcell|stanley|wesley|parry|stanford|elgar|lemare|stainer|dykes|monk|horsley|smart|bridge|howells|vaughan|bairstow|willan|holst/i },
+          { name: "American", re: /foote|parker|buck|paine|chadwick|ives|mason|hastings|bradbury|lowry|doane|holden|webb|converse|thompson|sowerby|bingham/i },
+          { name: "Italian", re: /banchieri|frescobaldi|zipoli|monteverdi|pergolesi|corelli|vivaldi|scarlatti|gabrieli|bossi/i }
+        ];
+        scores.forEach(function(item) {
+          if (!item.tradition) {
+            var c = item.composer || "";
+            var found = "Other";
+            for (var i = 0; i < tradRules.length; i++) {
+              if (tradRules[i].re.test(c)) { found = tradRules[i].name; break; }
+            }
+            item.tradition = found;
+          }
+        });
+
+        var compCounts = {};
+        var tradCounts = {};
+        scores.forEach(function(item) {
+          var c = item.composer || "Public Domain";
+          compCounts[c] = (compCounts[c] || 0) + 1;
+          tradCounts[item.tradition] = (tradCounts[item.tradition] || 0) + 1;
+        });
+
+        var compSel = document.getElementById("composerFilter");
+        var compNames = Object.keys(compCounts).sort();
+        compSel.innerHTML = '<option value="ALL">All Composers (' + compNames.length + ')</option>' +
+          compNames.map(function(c) {
+            return '<option value="' + c.replace(/"/g, "&quot;") + '">' + c + ' (' + compCounts[c] + ')</option>';
+          }).join("");
+
+        var tradOrder = ["ALL", "German", "French", "English", "American", "Italian", "Other"];
+        var tradRow = document.getElementById("traditionChips");
+        tradRow.innerHTML = tradOrder
+          .filter(function(t) { return t === "ALL" || (tradCounts[t] || 0) > 0; })
+          .map(function(t) {
+            var lbl = t === "ALL" ? "All Traditions (" + scores.length + ")" : t + " (" + tradCounts[t] + ")";
+            var act = t === "ALL" ? " active" : "";
+            return '<button type="button" class="chip' + act + '" data-tradition="' + t + '">' + lbl + '</button>';
+          }).join("");
+      }
+
+      var selTrad = window.selectedTradition || "ALL";
+      var selComp = window.selectedComposer || "ALL";
+      var visLimit = window.visibleLimit || 60;
+
       const filtered = scores.filter(function(s) {
+        const matchesTradition = selTrad === "ALL" || (s.tradition || "") === selTrad;
+        const matchesComposer = selComp === "ALL" || (s.composer || "") === selComp;
         const matchesSeason = selectedSeason === "ALL" || (s.season || "").toLowerCase().includes(selectedSeason.toLowerCase());
         const matchesUse = selectedUse === "ALL" || (s.use || "").toLowerCase().includes(selectedUse.toLowerCase());
-        const matchesQuery = !q || [s.bwv, s.title, s.english, s.composer, s.season, s.use]
+        const matchesQuery = !q || [s.bwv, s.title, s.english, s.composer, s.season, s.use, s.tradition]
           .some(function(field) { return (field || "").toLowerCase().includes(q); });
-        return matchesSeason && matchesUse && matchesQuery;
+        return matchesTradition && matchesComposer && matchesSeason && matchesUse && matchesQuery;
       });
 
-      const isFiltered = selectedSeason !== "ALL" || selectedUse !== "ALL" || q.length > 0;
+      const isFiltered = selTrad !== "ALL" || selComp !== "ALL" || selectedSeason !== "ALL" || selectedUse !== "ALL" || q.length > 0;
       document.getElementById("resetBtn").classList.toggle("hidden", !isFiltered);
-      document.getElementById("resultsSummary").textContent = "Showing " + filtered.length + " of " + scores.length + " scores";
+      var shownCount = Math.min(visLimit, filtered.length);
+      document.getElementById("resultsSummary").textContent = "Showing " + shownCount + " of " + filtered.length + " matching scores (" + scores.length + " total)";
 
+      var loadWrap = document.getElementById("loadMoreWrap");
+      var loadBtn = document.getElementById("loadMoreBtn");
       if (filtered.length === 0) {
-        grid.innerHTML = '<div class="info-card"><p>No matching scores found. Try clearing your filters or searching by BWV number.</p></div>';
+        grid.innerHTML = '<div class="info-card"><p>No matching scores found. Try clearing your filters or searching by composer, title, or BWV/Opus.</p></div>';
+        if (loadWrap) loadWrap.classList.add("hidden");
         return;
+      }
+
+      if (loadWrap && loadBtn) {
+        if (visLimit < filtered.length) {
+          var rem = filtered.length - visLimit;
+          loadBtn.textContent = "Load " + Math.min(60, rem) + " more scores (" + rem + " remaining)";
+          loadWrap.classList.remove("hidden");
+        } else {
+          loadWrap.classList.add("hidden");
+        }
       }
 
       const unlocked = isUnlocked();
       const icon = unlocked ? "↓" : "🔒";
-      grid.innerHTML = filtered.map(function(s) {
+      grid.innerHTML = filtered.slice(0, visLimit).map(function(s) {
         const bwvTag = s.bwv ? '<span class="badge badge-bwv">' + s.bwv + '</span>' : '';
         const engPrefix = s.english ? (s.english + ' &middot; ') : '';
         return '<article class="score-card">' +
@@ -808,11 +884,29 @@
 
     document.getElementById("searchInput").addEventListener("input", function(e) {
       searchQuery = e.target.value;
+      window.visibleLimit = 60;
+      renderScores();
+    });
+
+    document.getElementById("composerFilter").addEventListener("change", function(e) {
+      window.selectedComposer = e.target.value;
+      window.visibleLimit = 60;
       renderScores();
     });
 
     document.getElementById("useFilter").addEventListener("change", function(e) {
       selectedUse = e.target.value;
+      window.visibleLimit = 60;
+      renderScores();
+    });
+
+    document.getElementById("traditionChips").addEventListener("click", function(e) {
+      var btn = e.target.closest(".chip");
+      if (!btn) return;
+      document.querySelectorAll("#traditionChips .chip").forEach(function(c) { c.classList.remove("active"); });
+      btn.classList.add("active");
+      window.selectedTradition = btn.dataset.tradition;
+      window.visibleLimit = 60;
       renderScores();
     });
 
@@ -821,16 +915,29 @@
         document.querySelectorAll("#seasonChips .chip").forEach(function(c) { c.classList.remove("active"); });
         btn.classList.add("active");
         selectedSeason = btn.dataset.season;
+        window.visibleLimit = 60;
         renderScores();
       });
+    });
+
+    document.getElementById("loadMoreBtn").addEventListener("click", function() {
+      window.visibleLimit = (window.visibleLimit || 60) + 60;
+      renderScores();
     });
 
     document.getElementById("resetBtn").addEventListener("click", function() {
       searchQuery = "";
       selectedSeason = "ALL";
       selectedUse = "ALL";
+      window.selectedTradition = "ALL";
+      window.selectedComposer = "ALL";
+      window.visibleLimit = 60;
       document.getElementById("searchInput").value = "";
+      document.getElementById("composerFilter").value = "ALL";
       document.getElementById("useFilter").value = "ALL";
+      document.querySelectorAll("#traditionChips .chip").forEach(function(c) {
+        c.classList.toggle("active", c.dataset.tradition === "ALL");
+      });
       document.querySelectorAll("#seasonChips .chip").forEach(function(c) {
         c.classList.toggle("active", c.dataset.season === "ALL");
       });
