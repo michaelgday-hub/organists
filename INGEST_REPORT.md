@@ -1,7 +1,6 @@
 # Ingest report — 2026-11-24 (staging run)
 
-**Status:** committed on `ingest/2026-11-24` in `~/Desktop/organists`, which isn't pushed yet (this session
-can't reach GitHub). Annotated tag `pre-ingest-2026-11-24` is on the old `main` head (`4f97732`). `main` is unchanged.
+**Status:** committed and pushed on `ingest/2026-11-24`. Annotated tag `pre-ingest-2026-11-24` is on the old `main` head (`4f97732`). `main` is unchanged until this PR is merged.
 
 Commits on the branch:
 1. `89721fe` back up `master_catalog.json` to `backups/master_catalog.2026-11-24.json`
