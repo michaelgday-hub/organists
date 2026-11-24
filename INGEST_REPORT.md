@@ -5,7 +5,11 @@ can't reach GitHub). Annotated tag `pre-ingest-2026-11-24` is on the old `main` 
 
 Commits on the branch:
 1. `89721fe` back up `master_catalog.json` to `backups/master_catalog.2026-11-24.json`
-2. `481dc24` non-destructive metadata backfill of the live catalog, plus `ingest_reports/2026-11-24/`
+2. `481dc24` non-destructive metadata backfill of the live catalog
+3. `331dd55` first version of this report
+4. `87d7893` **removed 100 entries** (and their 200 PDFs) at the maintainer's request; list in `ingest_reports/2026-11-24/removed_entries.md`
+5. `482887d` **corrected 12 mangled composer names**, then re-ran the backfill for them; list in `ingest_reports/2026-11-24/composer_corrections.md`
+6. this report
 
 No new scores were harvested or engraved. The session had no network, LilyPond, Audiveris or `gh`. The pipeline
 code in `organ_library_test/ingest_staging/2026-11-24/code/` is ready for `run_ingest.py` on your Mac.
@@ -17,8 +21,9 @@ code in `organ_library_test/ingest_staging/2026-11-24/code/` is ready for `run_i
 | Live `master_catalog.json` (repo, `main`) | 1,469 |
 | Live PDFs in `scores_tablet/` / `scores_print/` | 1,969 / 1,969 |
 | Drive/local catalog in `organ_library_test` | 1,464 (34 ids exist only live, 29 only locally) |
+| Live catalog after this branch | **1,369** (1,469 − 100 removed) |
 | New scores this run | 0 |
-| Existing PDFs changed vs `pre-ingest` tag | 0 |
+| Existing PDFs vs `pre-ingest` tag | 200 deleted (the removed entries), 0 modified |
 
 ## Metadata backfill (proposed, validated, not promoted)
 
@@ -44,22 +49,24 @@ local run; the live run gives the same figures to within 0.5 points (staves 100 
 Tradition after backfill: German 848, English 34, French 32, American 16, Italian 8, Spanish 3, none 523.
 504 of the 523 are the "Traditional / Hymnal" entries.
 
-## Items needing your review (details in `audit/catalog_diff_report.md`)
+## Decisions applied (2026-11-24)
 
-- **Probably not public domain (34 live entries):** Open Hymnal items whose ids or composer fields name
-  2001–2012 texts or settings (Brian J. Dumont, Brian L. Penney, Anthony Robertson, Jay C. Wingard,
-  and others). The Open Hymnal license may cover them, but they fail the pre-1931 rule as written.
-- **Restrictive encoding copyrights (45):** Humdrum/CCARH files marked "Copyright 1994, David Huron / CCARH".
-  These are the WTC fugues, Inventions and some chorales.
-- **Not organ repertoire:** 56 WTC fugues/Inventions (keyboard). Brahms *Waltz* Op. 39 No. 10 and
-  *Intermezzo* Op. 118 No. 2 (piano). *Wiegenlied* Op. 49 No. 4 (song). Tárrega (guitar, 3 entries).
-  Mutopia flags 4 by instrument.
-- **Modern composer:** C. J. Brown *Wedding Music*, "typeset by permission of the composer", CC BY 4.0.
-  Allowed as an open license, but confirm it's wanted.
-- **Mangled composer fields (not changed):** `Carl G. Glser` → Gläser, `Johann Crger` → Crüger,
-  and 12 that couldn't be parsed (`from`, `or 'London`, the full "Text: …" strings).
-- **Staff mismatches:** chorales whose sources have 4–5 staves but are engraved as 2-staff.
-- 1 catalog entry points to a source file that no longer exists (`Bach_BWV846…`). 3 entries have unknown provenance.
+| Decision | Result |
+|---|---|
+| Delete hymns with 2001–2012 texts | 34 Open Hymnal entries removed (including the 2011 Pachelbel "Kanon" setting) |
+| Delete Humdrum "Copyright 1994" files | 44 removed: WTC fugues, Inventions, and CCARH chorales BWV 277, 281, 366 |
+| Delete non-organ pieces | Inventions, 15 Sinfonias, WTC fugues, Brahms Op. 118 No. 2, Op. 39 No. 10, Op. 49 No. 4, and Op. 94 No. 4 *Sapphische Ode* (it had been mislabelled as the organ prelude Op. 122 No. 1), and Tárrega *Alhambra* ×3 |
+| Keep CC BY 4.0 files | C. J. Brown *Wedding Music* kept (also all CC BY-SA Mutopia files) |
+| Fix mangled composer names | 12 entries: Crger→Crüger, George→Georg Rhau, Redhead, Vaughan Williams (Kingsfold), Klug's Geistliche Lieder (1543); a truncated "from" → Traditional / Hymnal |
+| Accept 2-staff chorales | no change |
+| Delete entries pointing to missing files | none in the live catalog (every entry has both PDFs and a source file). The one stale entry (`Bach_BWV846`) was only in the pipeline catalog; the patched agent now drops entries whose source is missing |
+
+Total removed: 100 entries (the categories overlap). Everything can be restored from tag `pre-ingest-2026-11-24`.
+
+**Making it stick:** `catalog_exclusions.json` (100 ids, 101 source paths) stops the patched agent from rebuilding or
+re-publishing any of these. `run_ingest.py` now starts each run from the published catalog, so the removals and composer
+fixes aren't overwritten by the older pipeline catalog in Google Drive. The merge also matches entries by source path,
+not just id.
 
 ## Pipeline code (in `code/`; nothing installed over the originals)
 
