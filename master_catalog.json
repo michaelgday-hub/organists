@@ -23062,7 +23062,7 @@
   {
     "id": "Text_Edward_H_Plumptre_1864_Music_Kingsfold_t_Thine_Arm_O_Lord_in_Days_of_Old",
     "catalog_num": "",
-    "composer": "Text: Edward H. Plumptre, 1864.  Music: 'Kingsfold' traditional English.  Setting: Ralph Vaughan Williams, 1906.",
+    "composer": "Ralph Vaughan Williams",
     "title_de": "Text Edward H Plumptre 1864 Music Kingsfold T Thine Arm O Lord In Days Of Old",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -23084,12 +23084,15 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1872–1958",
+    "tradition": "English",
+    "era": "Early 20th Century"
   },
   {
     "id": "Text_Edward_H_Plumptre_1864_Music_Kingsfold_tradit_Thine_Arm_O_Lord_In_Days_Of_Old-Kingsfold",
     "catalog_num": "",
-    "composer": "Text: Edward H. Plumptre, 1864.  Music: 'Kingsfold' traditional English.  Setting: Ralph Vaughan Williams, 1906.",
+    "composer": "Ralph Vaughan Williams",
     "title_de": "Text Edward H Plumptre 1864 Music Kingsfold Tradit Thine Arm O Lord In Days Of Old-Kingsfold",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -23111,7 +23114,10 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1872–1958",
+    "tradition": "English",
+    "era": "Early 20th Century"
   },
   {
     "id": "Words_14th_Century_Bohemian_Latin_carol_Stanz_Jesus_Christ_Is_Risen_Today",
@@ -24600,7 +24606,7 @@
   {
     "id": "Words_Charles_W_Everest_1833_Music_Nun_Lasst__Take_Up_Thy_Cross_the_Savior_Said",
     "catalog_num": "",
-    "composer": "George Rhau",
+    "composer": "Georg Rhau",
     "title_de": "Words Charles W Everest 1833 Music Nun Lasst  Take Up Thy Cross The Savior Said",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -24615,9 +24621,6 @@
       "print_pdf": "Hymns_Words_Charles_W_Everest_1833_Music_Nun_Lasst__Take_Up_Thy_Cross_the_Savior_Said_Print.pdf"
     },
     "title": "'Take Up Thy Cross', the Savior Said",
-    "composer_dates": "1488–1548",
-    "tradition": "German",
-    "era": "Renaissance",
     "key_signature": "G major",
     "time_signature": "4/4",
     "staves": 2,
@@ -24625,12 +24628,15 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1488–1548",
+    "tradition": "German",
+    "era": "Renaissance"
   },
   {
     "id": "Words_Charles_W_Everest_1833_Music_Nun_Lasst_Uns_D_Take_Up_Thy_Cross_The_Savior_Said-Nun_Lasst_Uns_De",
     "catalog_num": "",
-    "composer": "George Rhau",
+    "composer": "Georg Rhau",
     "title_de": "Words Charles W Everest 1833 Music Nun Lasst Uns D Take Up Thy Cross The Savior Said-Nun Lasst Uns De",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -24645,9 +24651,6 @@
       "print_pdf": "Hymns_Words_Charles_W_Everest_1833_Music_Nun_Lasst_Uns_D_Take_Up_Thy_Cross_The_Savior_Said-Nun_Lasst_Uns_De_Print.pdf"
     },
     "title": "'Take Up Thy Cross', the Savior Said",
-    "composer_dates": "1488–1548",
-    "tradition": "German",
-    "era": "Renaissance",
     "key_signature": "G major",
     "time_signature": "4/4",
     "staves": 2,
@@ -24655,7 +24658,10 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1488–1548",
+    "tradition": "German",
+    "era": "Renaissance"
   },
   {
     "id": "Words_Charles_Wesley_1738_And_Can_It_Be-Fillmore",
@@ -27602,7 +27608,7 @@
   {
     "id": "Words_Friedrich_C_Heyder_1710_Translation_com_I_Come_O_Savior_To_Thy_Table",
     "catalog_num": "",
-    "composer": "from",
+    "composer": "Traditional / Hymnal",
     "title_de": "Words Friedrich C Heyder 1710 Translation Com I Come O Savior To Thy Table",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -27629,7 +27635,7 @@
   {
     "id": "Words_Friedrich_C_Heyder_1710_Translation_composit_I_Come_O_Savior_To_Thy_Table-Ich_Sterbe_Taglich",
     "catalog_num": "",
-    "composer": "from",
+    "composer": "Traditional / Hymnal",
     "title_de": "Words Friedrich C Heyder 1710 Translation Composit I Come O Savior To Thy Table-Ich Sterbe Taglich",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -29531,7 +29537,7 @@
   {
     "id": "Words_James_Montgomery_1820_Music_Gethsemane__Go_To_Dark_Gethsemane",
     "catalog_num": "",
-    "composer": "or 'Petra' Richard Redhead",
+    "composer": "Richard Redhead",
     "title_de": "Words James Montgomery 1820 Music Gethsemane  Go To Dark Gethsemane",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -29553,12 +29559,15 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1820–1901",
+    "tradition": "English",
+    "era": "Romantic"
   },
   {
     "id": "Words_James_Montgomery_1820_Music_Gethsemane_or_Pe_Go_to_Dark_Gethsemane-Gethsemane-Petra",
     "catalog_num": "",
-    "composer": "or 'Petra' Richard Redhead",
+    "composer": "Richard Redhead",
     "title_de": "Words James Montgomery 1820 Music Gethsemane Or Pe Go To Dark Gethsemane-Gethsemane-Petra",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -29580,7 +29589,10 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1820–1901",
+    "tradition": "English",
+    "era": "Romantic"
   },
   {
     "id": "Words_James_Nicholson_1872_Whiter_Than_Snow-Whiter_Than_Snow",
@@ -33239,7 +33251,7 @@
   {
     "id": "Words_Martin_Rinkart_c_1636_Translated_Cather_Now_Thank_We_All_Our_God",
     "catalog_num": "",
-    "composer": "Johann Crger",
+    "composer": "Johann Crüger",
     "title_de": "Words Martin Rinkart C 1636 Translated Cather Now Thank We All Our God",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -33254,21 +33266,21 @@
       "print_pdf": "Hymns_Words_Martin_Rinkart_c_1636_Translated_Cather_Now_Thank_We_All_Our_God_Print.pdf"
     },
     "title": "Now Thank We All Our God",
-    "composer_dates": "1598–1662",
-    "tradition": "German",
-    "era": "Baroque",
     "key_signature": "F major",
     "staves": 2,
     "tags": [
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1598–1662",
+    "tradition": "German",
+    "era": "Baroque"
   },
   {
     "id": "Words_Martin_Rinkart_c_1636_Translated_Catherine_W_Now_Thank_We_All_Our_God-Nun_Danket",
     "catalog_num": "",
-    "composer": "Johann Crger",
+    "composer": "Johann Crüger",
     "title_de": "Words Martin Rinkart C 1636 Translated Catherine W Now Thank We All Our God-Nun Danket",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -33283,16 +33295,16 @@
       "print_pdf": "Hymns_Words_Martin_Rinkart_c_1636_Translated_Catherine_W_Now_Thank_We_All_Our_God-Nun_Danket_Print.pdf"
     },
     "title": "Now Thank We All Our God",
-    "composer_dates": "1598–1662",
-    "tradition": "German",
-    "era": "Baroque",
     "key_signature": "F major",
     "staves": 2,
     "tags": [
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1598–1662",
+    "tradition": "German",
+    "era": "Baroque"
   },
   {
     "id": "Words_Martin_Schalling_circa_1571_Translated__Lord_Thee_I_Love_with_All_My_Heart",
@@ -33513,7 +33525,7 @@
   {
     "id": "Words_Matthias_Loy_1863_Music_Erhalt_Uns_Herr_The_Law_Of_God_Is_Good_And_Wise",
     "catalog_num": "",
-    "composer": "from Klug's Geistliche Lieder",
+    "composer": "Klug's Geistliche Lieder (1543)",
     "title_de": "Words Matthias Loy 1863 Music Erhalt Uns Herr The Law Of God Is Good And Wise",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -33528,9 +33540,6 @@
       "print_pdf": "Hymns_Words_Matthias_Loy_1863_Music_Erhalt_Uns_Herr_The_Law_Of_God_Is_Good_And_Wise_Print.pdf"
     },
     "title": "The Law Of God Is Good And Wise",
-    "composer_dates": "1533",
-    "tradition": "German",
-    "era": "Renaissance",
     "key_signature": "G major",
     "time_signature": "4/4",
     "staves": 2,
@@ -33538,12 +33547,15 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1543",
+    "tradition": "German",
+    "era": "Renaissance"
   },
   {
     "id": "Words_Matthias_Loy_1863_Music_Erhalt_Uns_Herr_bei__The_Law_Of_God_Is_Good_And_Wise-Erhalt_Uns_Herr",
     "catalog_num": "",
-    "composer": "from Klug's Geistliche Lieder",
+    "composer": "Klug's Geistliche Lieder (1543)",
     "title_de": "Words Matthias Loy 1863 Music Erhalt Uns Herr Bei  The Law Of God Is Good And Wise-Erhalt Uns Herr",
     "title_en": "",
     "season": "General / Ordinary Time",
@@ -33558,9 +33570,6 @@
       "print_pdf": "Hymns_Words_Matthias_Loy_1863_Music_Erhalt_Uns_Herr_bei__The_Law_Of_God_Is_Good_And_Wise-Erhalt_Uns_Herr_Print.pdf"
     },
     "title": "The Law Of God Is Good And Wise",
-    "composer_dates": "1533",
-    "tradition": "German",
-    "era": "Renaissance",
     "key_signature": "G major",
     "time_signature": "4/4",
     "staves": 2,
@@ -33568,7 +33577,10 @@
       "Hymn"
     ],
     "source_repository": "Open Hymnal",
-    "source_url": "https://github.com/mzealey/openhymnal"
+    "source_url": "https://github.com/mzealey/openhymnal",
+    "composer_dates": "1543",
+    "tradition": "German",
+    "era": "Renaissance"
   },
   {
     "id": "Words_Matthus_Apelles_von_Lwenstern_1644_Tran_Lord_Of_Our_Life",
