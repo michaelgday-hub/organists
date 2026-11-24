@@ -1,0 +1,25 @@
+# Keys every master_catalog.json entry must keep (validation reference for metadata_audit.py).
+# Taken from index.html (~line 720) on 2026-11-24, which maps each catalog item as:
+#   stem     <- item.id || item.stem
+#   bwv      <- item.catalog_num || item.catalog || item.bwv
+#   title    <- item.title_de || item.title || stem      (title_de wins, so adding `title` changes nothing on screen)
+#   english  <- item.title_en || item.english
+#   composer <- item.composer
+#   season   <- item.season
+#   use      <- item.service_use (array) || item.use
+#   tablet/print PDFs <- item.files.tablet_pdf / item.files.print_pdf
+#   tradition chips <- item.tradition (inferred from composer if absent)
+# All keys the agent writes are kept as required.
+id
+catalog_num
+composer
+title_de
+title_en
+season
+service_use
+difficulty
+voicing
+source_rel_path
+files
+files.tablet_pdf
+files.print_pdf
