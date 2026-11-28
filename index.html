@@ -712,6 +712,16 @@
       return false;
     }
 
+    function esc(v) {
+      return String(v == null ? "" : v).replace(/[&<>"']/g, function(ch) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+      });
+    }
+
+    function safeUrl(u) {
+      return /^https:\/\//.test(u || "") ? esc(u) : "#";
+    }
+
     function resolvePdfPath(rawPath, folder, fallbackName) {
       const p = rawPath || fallbackName;
       return p.includes("/") ? p : (folder + "/" + p);
@@ -733,6 +743,11 @@
           composer: item.composer || "J. S. Bach",
           season: item.season || "General",
           use: usesStr,
+          tradition: item.tradition || "",
+          linkOnly: item.ingest_method === "link-only",
+          externalUrl: item.external_url || item.source_url || "",
+          editionsUrl: item.source_url || "",
+          edition: [item.source_repository, item.publication_year].filter(Boolean).join(", "),
           tablet_pdf: resolvePdfPath(files.tablet_pdf || item.tablet_pdf, "scores_tablet", stem + "_Tablet.pdf"),
           print_pdf: resolvePdfPath(files.print_pdf || item.print_pdf, "scores_print", stem + "_Print.pdf")
         };
@@ -858,26 +873,33 @@
       const unlocked = isUnlocked();
       const icon = unlocked ? "↓" : "🔒";
       grid.innerHTML = filtered.slice(0, visLimit).map(function(s) {
-        const bwvTag = s.bwv ? '<span class="badge badge-bwv">' + s.bwv + '</span>' : '';
-        const engPrefix = s.english ? (s.english + ' &middot; ') : '';
-        return '<article class="score-card">' +
-          '<div class="score-info">' +
-            '<div class="score-badges">' +
-              bwvTag +
-              '<span class="badge ' + seasonBadgeClass(s.season) + '">' + s.season + '</span>' +
-              '<span class="badge badge-use">' + s.use + '</span>' +
-            '</div>' +
-            '<h2 class="score-title">' + s.title + '</h2>' +
-            '<p class="score-subtitle">' + engPrefix + s.composer + '</p>' +
-          '</div>' +
-          '<div class="score-actions">' +
-            '<a class="btn-pdf btn-tablet" href="' + s.tablet_pdf + '" onclick="return handleScoreDownload(event, \'' + s.tablet_pdf + '\')">' +
+        const bwvTag = s.bwv ? '<span class="badge badge-bwv">' + esc(s.bwv) + '</span>' : '';
+        const engPrefix = s.english ? (esc(s.english) + ' &middot; ') : '';
+        const editionNote = s.linkOnly && s.edition ? ' &middot; ' + esc(s.edition) : '';
+        const actions = s.linkOnly
+          ? '<a class="btn-pdf btn-tablet" href="' + safeUrl(s.externalUrl) + '" target="_blank" rel="noopener">' +
+              'Scan on IMSLP <span class="lock-icon">↗</span>' +
+            '</a>' +
+            '<a class="btn-pdf btn-print" href="' + safeUrl(s.editionsUrl) + '" target="_blank" rel="noopener">' +
+              'All editions <span class="lock-icon">↗</span>' +
+            '</a>'
+          : '<a class="btn-pdf btn-tablet" href="' + s.tablet_pdf + '" onclick="return handleScoreDownload(event, \'' + s.tablet_pdf + '\')">' +
               '<span class="lock-icon">' + icon + '</span> Tablet PDF' +
             '</a>' +
             '<a class="btn-pdf btn-print" href="' + s.print_pdf + '" onclick="return handleScoreDownload(event, \'' + s.print_pdf + '\')">' +
               '<span class="lock-icon">' + icon + '</span> Print PDF' +
-            '</a>' +
+            '</a>';
+        return '<article class="score-card">' +
+          '<div class="score-info">' +
+            '<div class="score-badges">' +
+              bwvTag +
+              '<span class="badge ' + seasonBadgeClass(s.season) + '">' + esc(s.season) + '</span>' +
+              '<span class="badge badge-use">' + esc(s.use) + '</span>' +
+            '</div>' +
+            '<h2 class="score-title">' + esc(s.title) + '</h2>' +
+            '<p class="score-subtitle">' + engPrefix + esc(s.composer) + editionNote + '</p>' +
           '</div>' +
+          '<div class="score-actions">' + actions + '</div>' +
         '</article>';
       }).join("");
     }
